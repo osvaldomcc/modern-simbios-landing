@@ -1,0 +1,146 @@
+---
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Remote source for the testimonial avatar
+const sarahAvatar = "https://i.pravatar.cc/300?u=Sara";
+---
+
+<section
+  id="contact"
+  class="py-24 bg-surface dark:bg-brand-black transition-colors overflow-hidden"
+>
+  <div class="container mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <!-- Left Column: Testimonial -->
+      <div class="max-w-xl">
+        <span
+          class="text-7xl font-serif text-brand-orange dark:text-brand-yellow opacity-20 block mb-4"
+          aria-hidden="true">“</span
+        >
+        <h2
+          class="text-4xl md:text-5xl font-bold text-heading dark:text-white leading-[1.1] tracking-tightest mb-12"
+        >
+          {t("contact.testimonial")}
+        </h2>
+
+        <div class="flex items-center gap-5">
+          <div
+            class="w-14 h-14 rounded-pill overflow-hidden border-2 border-primary/10 shadow-sm"
+          >
+            <Image
+              src={sarahAvatar}
+              alt="Sarah Jenkins, CTO of Nexus Enterprise"
+              width={56}
+              height={56}
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div>
+            <p
+              class="font-bold text-heading dark:text-white leading-none mb-1.5"
+            >
+              Sarah Jenkins
+            </p>
+            <p class="text-sm text-text-body font-medium">
+              CTO, Nexus Enterprise
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Form (Sin cambios, manteniendo tus tokens v6.0) -->
+      <div class="relative">
+        <div
+          class="absolute -inset-4 bg-brand-orange/5 dark:bg-brand-yellow/5 blur-3xl rounded-full"
+          aria-hidden="true"
+        >
+        </div>
+        <div
+          class="relative bg-white dark:bg-brand-off-white/5 p-8 md:p-12 rounded-card shadow-2xl border border-gray-100 dark:border-white/10"
+        >
+          <h3
+            class="text-3xl font-bold text-heading dark:text-white mb-3 tracking-tightest"
+          >
+            {t("contact.title")}
+          </h3>
+          <p class="text-text-body mb-8 text-lg">{t("contact.subtitle")}</p>
+
+          <form class="space-y-6">
+            <!-- Name Input -->
+            <div class="space-y-2">
+              <label
+                for="name"
+                class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-body/60"
+                >{t("contact.label.name")}</label
+              >
+              <input
+                type="text"
+                id="name"
+                required
+                placeholder={t("contact.placeholder.name")}
+                class="w-full px-4 py-3.5 rounded-inner border border-gray-200 dark:border-white/10 bg-transparent text-heading dark:text-white focus:ring-2 focus:ring-action outline-none transition-all duration-vercel"
+              />
+            </div>
+
+            <!-- Email Input -->
+            <div class="space-y-2">
+              <label
+                for="email"
+                class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-body/60"
+                >{t("contact.label.email")}</label
+              >
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="jane@company.com"
+                class="w-full px-4 py-3.5 rounded-inner border border-gray-200 dark:border-white/10 bg-transparent text-heading dark:text-white focus:ring-2 focus:ring-action outline-none transition-all duration-vercel"
+              />
+            </div>
+
+            <!-- Company Input -->
+            <div class="space-y-2">
+              <label
+                for="company"
+                class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-body/60"
+                >{t("contact.label.company")}</label
+              >
+              <input
+                type="text"
+                id="company"
+                placeholder="Acme Corp"
+                class="w-full px-4 py-3.5 rounded-inner border border-gray-200 dark:border-white/10 bg-transparent text-heading dark:text-white focus:ring-2 focus:ring-action outline-none transition-all duration-vercel"
+              />
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-action text-white dark:text-brand-black font-bold py-4 rounded-pill hover:scale-[1.02] active:scale-95 transition-all duration-vercel flex items-center justify-center gap-3 group shadow-xl shadow-action/20"
+            >
+              {t("contact.button")}
+              <span
+                class="group-hover:translate-x-1 transition-transform"
+                aria-hidden="true">→</span
+              >
+            </button>
+
+            <p
+              class="text-[10px] text-center text-text-body/50 uppercase tracking-widest leading-relaxed"
+            >
+              {t("contact.legal.part1")}
+              <a
+                href="#"
+                class="text-heading dark:text-white underline underline-offset-4 hover:text-action transition-colors"
+                >{t("contact.legal.link")}</a
+              >.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+---
+/**
+ * ValueProp Component
+ * Standards: Aligned with W3C accessibility and internationalization principles.
+ * Performance: Optimized for fast painting via semantic containment.
+ */
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const pillarIds = ["expertise", "approach", "reliability", "agile"];
+
+const pillars = pillarIds.map((id) => ({
+  title: t(`value.p.${id}.title` as any),
+  description: t(`value.p.${id}.desc` as any),
+  icon:
+    id === "expertise"
+      ? "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+      : id === "approach"
+        ? "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
+        : id === "reliability"
+          ? "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+          : "M13 10V3L4 14h7v7l9-11h-7z",
+}));
+---
+
+<section
+  class="py-24 bg-white dark:bg-brand-black overflow-hidden"
+  aria-labelledby="value-prop-title"
+>
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      <!-- Left Side: Strategic Narrative -->
+      <div class="lg:w-2/5">
+        <h2
+          id="value-prop-title"
+          class="text-4xl lg:text-5xl font-bold text-brand-navy dark:text-white mb-8 tracking-tightest leading-[1.1]"
+        >
+          {t("value.main.title")}
+          <span class="text-brand-orange dark:text-brand-yellow">company?</span>
+        </h2>
+        <p class="text-text-body text-lg leading-relaxed mb-10 max-w-md">
+          {t("value.main.desc")}
+        </p>
+        <div
+          class="h-1.5 w-24 bg-brand-orange dark:bg-brand-yellow rounded-pill"
+          aria-hidden="true"
+        >
+        </div>
+      </div>
+
+      <!-- Right Side: Value Pillars (Semantic Grid) -->
+      <div class="lg:w-3/5 grid sm:grid-cols-2 gap-x-12 gap-y-16">
+        {
+          pillars.map((pillar) => (
+            <article class="flex gap-6 group">
+              <div class="shrink-0">
+                <div class="w-14 h-14 flex items-center justify-center rounded-inner bg-brand-navy/5 dark:bg-brand-yellow/10 text-brand-navy dark:text-brand-yellow group-hover:scale-110 transition-transform duration-vercel">
+                  <svg
+                    xmlns="http://w3.org"
+                    class="h-7 w-7"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d={pillar.icon}
+                      vector-effect="non-scaling-stroke"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold text-brand-navy dark:text-white mb-3 tracking-tightest">
+                  {pillar.title}
+                </h3>
+                <p class="text-text-body leading-relaxed text-sm lg:text-base">
+                  {pillar.description}
+                </p>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

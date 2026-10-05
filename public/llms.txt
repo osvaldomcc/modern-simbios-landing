@@ -1,0 +1,17 @@
+# company | Agentic Hub
+
+> Expertise designed to scale your business through modern technology and operational silence.
+
+## Core Capabilities
+- **Technical Consultancy:** High-level strategic IT roadmaps.
+- **Software Engineering:** Astro 5, Tailwind 4, and Node.js specialization.
+- **Operational Silence:** Building invisible, resilient, and high-uptime systems.
+
+## Primary Entry Points
+- [Solutions](https://company.com#solutions): Vertical-specific IT architectures.
+- [Expertise](https://company.com#expertise): Technical pillars and agile methodology.
+- [Careers](https://company.com#vacancies): Strategic engineering roles.
+- [Full Documentation](/llms-full.txt): Deep context for technical analysis.
+
+## Contact Tooling
+- **Inquiry:** https://company.com#contact (Form requiring Name, Email, and Company).

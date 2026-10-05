@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+    /* Brand Tokens from DESIGN.md */
+    --color-brand-navy: #354B8C;
+    --color-brand-black: #0B0C0D;
+    --color-brand-yellow: #F2CB05;
+    --color-brand-burgundy: #592525;
+    --color-brand-sky: #3BACD9;
+    --color-brand-orange: #D94929;
+    --color-brand-off-white: #F2F2F2;
+
+    /* Functional Tokens */
+    --color-primary: var(--color-brand-navy);
+    --color-action: var(--color-brand-orange);
+    --color-surface: #F9FAFB;
+    --color-heading: #111827;
+    --color-body: #374151;
+
+    /* Spacing & Radius */
+    --radius-card: 16px;
+    --radius-inner: 12px;
+    --radius-pill: 9999px;
+
+    /* Typography */
+    --font-sans: "Inter", system-ui, sans-serif;
+    --letter-spacing-tightest: -0.02em;
+
+    /* Animations */
+    --transition-vercel: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark Mode Overrides */
+@variant dark (&:where(.dark, .dark *));
+
+.dark {
+    --color-primary: var(--color-brand-sky);
+    --color-action: var(--color-brand-yellow);
+    --color-surface: #1A1B1C;
+    --color-heading: var(--color-brand-off-white);
+    --color-body: #D1D5DB;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 1rem;
+        overflow-anchor: none;
+    }
+
+    body {
+        @apply bg-white text-body font-sans antialiased leading-relaxed transition-colors duration-300;
+        @apply dark:bg-brand-black;
+    }
+}

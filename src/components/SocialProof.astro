@@ -1,0 +1,232 @@
+---
+const partners = [
+  {
+    name: "NTT DATA",
+    url: "http://www.company.com/company/assets/img/clients/1.png",
+  },
+  {
+    name: "Janssen Pharmaceutical",
+    url: "http://www.company.com/company/assets/img/clients/2.png",
+  },
+  {
+    name: "Johnson & Johnson",
+    url: "http://www.company.com/company/assets/img/clients/3.png",
+  },
+  {
+    name: "Cigna",
+    url: "http://www.company.com/company/assets/img/clients/5.png",
+  },
+  {
+    name: "Politie Police",
+    url: "http://www.company.com/company/assets/img/clients/6-a.png",
+  },
+  {
+    name: "Toyota",
+    url: "http://www.company.com/company/assets/img/clients/6-b.png",
+  },
+  {
+    name: "Test Aankoop",
+    url: "http://www.company.com/company/assets/img/clients/8.png",
+  },
+  {
+    name: "Electrabel",
+    url: "http://www.company.com/company/assets/img/clients/9.png",
+  },
+  {
+    name: "Sint-Maarten",
+    url: "http://www.company.com/company/assets/img/clients/10-a.png",
+  },
+  {
+    name: "Emmaüs",
+    url: "http://www.company.com/company/assets/img/clients/10-b.png",
+  },
+  {
+    name: "HP",
+    url: "http://www.company.com/company/assets/img/clients/12.png",
+  },
+  {
+    name: "EDS",
+    url: "http://www.company.com/company/assets/img/clients/13.png",
+  },
+  {
+    name: "UCB",
+    url: "http://www.company.com/company/assets/img/clients/14.png",
+  },
+  {
+    name: "BNP Paribas",
+    url: "http://www.company.com/company/assets/img/clients/15.png",
+  },
+  {
+    name: "Nike",
+    url: "http://www.company.com/company/assets/img/clients/16.png",
+  },
+  {
+    name: "Amadeus",
+    url: "http://www.company.com/company/assets/img/clients/17.png",
+  },
+  {
+    name: "NMBS",
+    url: "http://www.company.com/company/assets/img/clients/18.png",
+  },
+  {
+    name: "IMAS",
+    url: "http://www.company.com/company/assets/img/clients/19.png",
+  },
+  {
+    name: "Deutsche Bank",
+    url: "http://www.company.com/company/assets/img/clients/20.png",
+  },
+  {
+    name: "Fluvius",
+    url: "http://www.company.com/company/assets/img/clients/21.png",
+  },
+  {
+    name: "Van Genechten Packaging",
+    url: "http://www.company.com/company/assets/img/clients/22.png",
+  },
+  {
+    name: "Ardenne Bleue",
+    url: "http://www.company.com/company/assets/img/clients/23.png",
+  },
+  {
+    name: "Dip Clean Shop",
+    url: "http://www.company.com/company/assets/img/clients/24.png",
+  },
+  {
+    name: "Centric",
+    url: "http://www.company.com/company/assets/img/clients/25.png",
+  },
+  {
+    name: "CNN",
+    url: "http://www.company.com/company/assets/img/clients/26.png",
+  },
+  {
+    name: "ING",
+    url: "http://www.company.com/company/assets/img/clients/28.png",
+  },
+  {
+    name: "SD Worx",
+    url: "http://www.company.com/company/assets/img/clients/30.png",
+  },
+  {
+    name: "bpost",
+    url: "http://www.company.com/company/assets/img/clients/32.png",
+  },
+  {
+    name: "F-V-V-V",
+    url: "http://www.company.com/company/assets/img/clients/34.png",
+  },
+  {
+    name: "Ypto",
+    url: "http://www.company.com/company/assets/img/clients/35.png",
+  },
+  {
+    name: "USG Innovativ",
+    url: "http://www.company.com/company/assets/img/clients/36.png",
+  },
+  {
+    name: "Viveo",
+    url: "http://www.company.com/company/assets/img/clients/37.png",
+  },
+  {
+    name: "FPC",
+    url: "http://www.company.com/company/assets/img/clients/38.png",
+  },
+  {
+    name: "Gosselin Group",
+    url: "http://www.company.com/company/assets/img/clients/39.png",
+  },
+  {
+    name: "Nobel Biocare",
+    url: "http://www.company.com/company/assets/img/clients/40.png",
+  },
+  {
+    name: "Honda",
+    url: "http://www.company.com/company/assets/img/clients/41.png",
+  },
+  {
+    name: "MYCSN",
+    url: "http://www.company.com/company/assets/img/clients/42.png",
+  },
+  {
+    name: "OneSpan",
+    url: "http://www.company.com/company/assets/img/clients/43.png",
+  },
+];
+
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Double items for a seamless CSS loop
+const marqueeItems = [...partners, ...partners];
+---
+
+<section
+  class="py-16 bg-white dark:bg-brand-black border-y border-gray-100 dark:border-white/5 overflow-hidden group/marquee min-h-40 md:min-h-47.5 flex flex-col justify-center"
+>
+  <!-- Heading with Anthropic-style precision spacing -->
+  <p
+    class="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-body mb-12 opacity-50"
+  >
+    {t("social.heading")}
+  </p>
+
+  <div class="relative flex overflow-x-hidden">
+    <!-- Marquee Track: GPU Accelerated -->
+    <div
+      class="flex animate-marquee-slow whitespace-nowrap gap-16 md:gap-32 items-center hover:[animation-play-state:paused]"
+    >
+      {
+        marqueeItems.map((partner) => (
+          <div class="shrink-0 group/logo px-4">
+            <img
+              src={partner.url}
+              alt={`${partner.name} logo`}
+              width="120"
+              height="36"
+              class="h-7 md:h-9 w-auto transition-all duration-500 grayscale opacity-40 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 dark:invert dark:group-hover/logo:invert-0"
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Edge Fades for Operational Silence -->
+    <div
+      class="pointer-events-none absolute inset-y-0 left-0 w-32 bg-linear-to-r from-white dark:from-brand-black to-transparent"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute inset-y-0 right-0 w-32 bg-linear-to-l from-white dark:from-brand-black to-transparent"
+    >
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee-infinite {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-marquee-slow {
+    display: flex;
+    width: max-content;
+    animation: marquee-infinite 60s linear infinite;
+    /* Hardware acceleration for 0 main-thread impact */
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  .group\/marquee:hover .animate-marquee-slow {
+    animation-play-state: paused;
+  }
+</style>

@@ -1,0 +1,161 @@
+---
+/**
+ * Main Page Component (i18n Root)
+ * Performance: Optimized for cumulative layout shift (CLS) and semantic structure.
+ * Standards: Aligned with Vercel and Anthropic design specifications.
+ */
+import { languages } from "../../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import SocialProof from "../../components/SocialProof.astro";
+import SolutionsTabs from "../../components/SolutionsTabs.astro";
+import ValueProp from "../../components/ValueProp.astro";
+import About from "../../components/About.astro";
+import Career from "../../components/Career.astro";
+import ContactForm from "../../components/ContactForm.astro";
+
+interface Props {}
+const {} = Astro.props;
+
+export function getStaticPaths() {
+  return Object.keys(languages).map((lang) => ({ params: { lang } }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<BaseLayout
+  title={`${t("hero.title.part1")} ${t("hero.title.highlight")}`}
+  description={t("hero.description")}
+>
+  <!-- Navigation: Fixed and backdrop-blurred -->
+  <Header slot="header" />
+
+  <!-- Hero Section: LCP Critical Path -->
+  <Hero />
+
+  <!-- Social Proof: Marquee with edge-fades -->
+  <SocialProof />
+
+  <!-- Solutions Grid: Tabbed Interaction -->
+  <section
+    id="solutions"
+    class="py-24 bg-surface dark:bg-brand-black transition-colors"
+  >
+    <div class="container mx-auto px-6">
+      <header class="text-center mb-16">
+        <h2
+          class="text-4xl lg:text-5xl font-bold text-heading dark:text-white mb-4 tracking-tightest"
+        >
+          {t("solutions.title")}
+        </h2>
+        <p
+          class="text-text-body dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed"
+        >
+          {t("solutions.subtitle")}
+        </p>
+      </header>
+      <SolutionsTabs />
+    </div>
+  </section>
+
+  <!-- Expertise & Value Prop Section -->
+  <section
+    id="expertise"
+    class="py-24 bg-white dark:bg-brand-black transition-colors"
+  >
+    <div class="container mx-auto px-6">
+      <header class="text-center mb-16">
+        <h2
+          class="text-4xl lg:text-5xl font-bold text-heading dark:text-white mb-4 tracking-tightest"
+        >
+          {t("expertise.title")}
+        </h2>
+        <p
+          class="text-text-body dark:text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed"
+        >
+          {t("expertise.subtitle")}
+        </p>
+      </header>
+      <ValueProp />
+    </div>
+  </section>
+
+  <!-- Content Sections -->
+  <About />
+  <Career />
+  <ContactForm />
+
+  <!-- Final Advantage Call-out -->
+  <section
+    id="advantage"
+    class="py-24 bg-surface dark:bg-brand-black transition-colors"
+  >
+    <div class="container mx-auto px-6 text-center">
+      <h2
+        class="text-4xl lg:text-5xl font-bold text-heading dark:text-white mb-6 tracking-tightest"
+      >
+        {t("value.title")}
+      </h2>
+      <p
+        class="text-text-body dark:text-gray-400 max-w-2xl mx-auto text-lg mb-10"
+      >
+        {t("value.subtitle")}
+      </p>
+      <div
+        class="h-1.5 w-24 bg-brand-orange dark:bg-brand-yellow mx-auto rounded-pill opacity-40"
+      >
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footer: Semantic and High-Contrast -->
+  <footer
+    slot="footer"
+    class="bg-brand-navy dark:bg-brand-black py-20 border-t border-white/10"
+    role="contentinfo"
+  >
+    <div class="container mx-auto px-6">
+      <div
+        class="flex flex-col md:flex-row justify-between items-start md:items-center gap-12"
+      >
+        <div class="text-white">
+          <span class="text-2xl font-bold block mb-3 tracking-tightest"
+            >company</span
+          >
+          <p class="text-white/50 text-sm max-w-xs">{t("footer.slogan")}</p>
+        </div>
+
+        <nav
+          class="flex flex-wrap gap-8 text-white/80 font-bold uppercase text-[10px] tracking-[0.2em]"
+          aria-label="Footer navigation"
+        >
+          <a
+            href="#"
+            class="hover:text-brand-yellow transition-colors duration-vercel underline-offset-8 hover:underline"
+          >
+            {t("footer.privacy")}
+          </a>
+          <a
+            href="https://linkedin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-brand-yellow transition-colors duration-vercel underline-offset-8 hover:underline"
+          >
+            LinkedIn
+          </a>
+        </nav>
+      </div>
+
+      <div
+        class="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-white/40 text-[10px] font-bold uppercase tracking-widest"
+      >
+        <p>© {new Date().getFullYear()} company. Capital, country.</p>
+        <p>{t("footer.rights")}</p>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>

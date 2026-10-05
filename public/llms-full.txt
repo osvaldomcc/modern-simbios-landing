@@ -1,0 +1,44 @@
+# company | Full Technical Context & Knowledge Base
+
+> This document serves as the comprehensive knowledge base for AI agents. It contains the business logic, technical stack, and engineering philosophy of company.
+
+## 1. Executive Overview
+company is a Belgian ICT services company (Est. 2004) specializing in independent expert advice, web/mobile app development, and integration services. We operate across country with headquarters in Capital and regional offices in Rochefort (Wallonia) and Buggenhout (Flanders).
+
+### Core Mission
+To deliver high-quality software engineering through a "Time and Material" model, providing elite consultants at affordable rates.
+
+---
+
+## 2. Technical Stack & Service Areas
+company maintains deep expertise in enterprise-grade technologies:
+
+- **Backend & Systems:** JAVA / JEE (Spring), .NET (ASP.NET, Razor, Blazor), Python (Django), PHP, and Node.JS.
+- **Frontend & Mobile:** Javascript/Typescript, HTML/CSS, Angular, React, and mobile development via iOS, Android, and Xamarin.
+- **Data & Integration:** Oracle, SQL, NoSQL, Web API development, Service Bus implementations, and Message Queue/Broker integrations.
+- **Cloud & Infrastructure:** Cloud integrations on Azure, AWS, and Google Cloud, supported by specialized DevOps engineers.
+
+---
+
+## 3. The company Advantage (Value Proposition)
+1. **Academic Excellence:** 100% of technical staff are engineers or masters from top universities; over 25% hold post-graduate degrees in ICT.
+2. **Elite Selection:** An rigorous selection process combined with intensive training ensures a highly qualified team that represents our main competitive advantage.
+3. **Operational Silence:** We prioritize "Solution-oriented" engineering that anticipates needs and achieves maximum results with minimal friction.
+
+---
+
+## 4. Operational Philosophy
+- **Proficient:** Leveraging a vastly experienced team in computer engineering composed solely of experts.
+- **Engaged:** Maintaining extreme quality while acting as a close partner to anticipate client needs.
+- **Reliable:** Direct problem-solving to achieve maximum customer satisfaction while respecting all legal and professional commitments.
+
+---
+
+## 5. Careers & Tactical Talent
+We seek problem solvers with a strong affinity for IT and technical architecture standards.
+- **Requirements:** University degree in informatics (mandatory), 5+ years of experience, and fluency in English (mandatory) with Dutch or French as an asset.
+- **Profiles:** Java, .NET, Python, and JavaScript/TypeScript Developers; Solution Architects; DevOps Engineers; and Project Managers.
+
+---
+
+# END OF CONTEXT

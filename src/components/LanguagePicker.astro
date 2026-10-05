@@ -1,0 +1,123 @@
+---
+/**
+ * LanguagePicker Component
+ * Standards: Astro 5.x + Tailwind 4
+ * UX: High-precision dropdown with systematic radius.
+ */
+import { languages } from "../i18n/ui";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const currentLang = getLangFromUrl(Astro.url);
+const t = useTranslations(currentLang);
+
+const { pathname } = Astro.url;
+const segments = pathname.split("/").filter(Boolean);
+
+// Logic consistent with prefixDefaultLocale: false
+const currentPath = Object.keys(languages).includes(segments[0])
+  ? `/${segments.slice(1).join("/")}`
+  : `/${segments.join("/")}`;
+
+// Ensure no double slashes and handle root correctly
+const normalizedPath = currentPath.replace(/\/+/g, "/") || "/";
+---
+
+<div class="relative group" role="navigation" aria-label="Language Selector">
+  <!-- Trigger Button -->
+  <button
+    id="lang-trigger"
+    class="flex items-center gap-3 px-4 py-2 rounded-pill bg-transparent border border-gray-200 dark:border-white/10 hover:border-action transition-all duration-vercel group-hover:bg-brand-off-white dark:group-hover:bg-white/5 cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-action"
+    aria-expanded="false"
+    aria-haspopup="true"
+    aria-controls="lang-menu"
+  >
+    <div
+      class="relative flex items-center justify-center w-5 h-5 bg-action/10 rounded-full"
+    >
+      <span class="text-[9px] font-black uppercase text-action"
+        >{currentLang}</span
+      >
+    </div>
+    <div class="w-px h-3 bg-gray-200 dark:bg-white/20" aria-hidden="true"></div>
+    <span
+      class="text-[10px] font-bold uppercase tracking-[0.2em] text-text-body/60 group-hover:text-heading dark:group-hover:text-white transition-colors"
+    >
+      {t("lang.label")}
+    </span>
+  </button>
+
+  <!-- Invisible bridge to prevent closing on hover gap -->
+  <div
+    class="absolute h-4 w-full top-full bg-transparent invisible group-hover:visible"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div
+    id="lang-menu"
+    class="absolute right-0 top-full mt-3 w-52 origin-top-right overflow-hidden rounded-card bg-white/95 dark:bg-brand-black/95 backdrop-blur-2xl border border-gray-100 dark:border-white/10 shadow-2xl opacity-0 scale-95 -translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-vercel z-50"
+    role="menu"
+  >
+    <div
+      class="px-5 py-4 bg-brand-off-white/50 dark:bg-white/5 border-b border-gray-100 dark:border-white/5"
+    >
+      <p
+        class="text-[9px] font-black text-text-body/50 uppercase tracking-[0.4em]"
+      >
+        {t("lang.environment")}
+      </p>
+    </div>
+
+    <div class="p-2 space-y-1">
+      {
+        Object.entries(languages).map(([code, label]) => {
+          // Astro handles the "/" correctly for the default locale
+          const href = getRelativeLocaleUrl(code, normalizedPath).replace(
+            /\/+/g,
+            "/",
+          );
+
+          return (
+            <a
+              href={href}
+              role="menuitem"
+              class={`
+                flex items-center justify-between px-4 py-3 rounded-inner text-xs font-bold uppercase tracking-widest transition-all
+                ${
+                  code === currentLang
+                    ? "bg-action/10 text-action pointer-events-none"
+                    : "text-text-body hover:bg-brand-off-white dark:hover:bg-white/10 hover:text-heading dark:hover:text-white"
+                }
+              `}
+            >
+              {label}
+              {code === currentLang && (
+                <span
+                  class="flex h-1.5 w-1.5 rounded-full bg-action shadow-[0_0_8px_var(--color-action)]"
+                  aria-hidden="true"
+                />
+              )}
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  // A11y improvement: Handle aria-expanded for screen readers
+  const trigger = document.getElementById("lang-trigger");
+  const group = trigger?.closest(".group");
+
+  if (trigger && group) {
+    group.addEventListener("mouseenter", () =>
+      trigger.setAttribute("aria-expanded", "true"),
+    );
+    group.addEventListener("mouseleave", () =>
+      trigger.setAttribute("aria-expanded", "false"),
+    );
+  }
+</script>

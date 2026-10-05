@@ -1,0 +1,189 @@
+---
+/**
+ * BaseLayout Component
+ * Architecture: Astro 5.x Optimized
+ * CSS: Tailwind 4 Integrated via var() tokens
+ */
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/700.css";
+import "../styles/global.css";
+import { languages, defaultLang } from "../i18n/ui";
+import { getLangFromUrl } from "../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const {
+  title = "company | Scalable IT Solutions",
+  description = "Technical mastery designed to scale your business through modern innovation.",
+  image = "/og-image.png",
+} = Astro.props;
+
+const website = "https://company.com";
+
+const lang = getLangFromUrl(Astro.url);
+const author = "Osvaldo Castillo";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? website);
+
+// Dynamic path logic for Hreflang
+const { pathname } = Astro.url;
+const segments = pathname.split("/").filter(Boolean);
+const currentPath = Object.keys(languages).includes(segments[0])
+  ? `/${segments.slice(1).join("/")}`
+  : `/${segments.join("/")}`;
+
+const normalizedPath = currentPath === "//" ? "/" : currentPath;
+
+// Structured Data
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "company",
+  author: { "@type": "Person", name: author },
+  description: description,
+  url: Astro.site ?? website,
+  image: new URL(image, Astro.url),
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Capital",
+    addressCountry: "CU",
+  },
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO: Internationalization (Hreflang) -->
+    {
+      Object.keys(languages).map((lang) => {
+        const localePath = getRelativeLocaleUrl(lang, normalizedPath);
+
+        const finalPath = localePath.replace(/\/+/g, "/");
+
+        return (
+          <link
+            rel="alternate"
+            hreflang={lang}
+            href={new URL(finalPath, Astro.site)}
+          />
+        );
+      })
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(
+        getRelativeLocaleUrl(defaultLang, normalizedPath).replace(/\/+/g, "/"),
+        Astro.site,
+      )}
+    />
+
+    <!-- Social Meta -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+
+    <!-- Critical Theme Script (Zero-FOUC) -->
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
+          return localStorage.getItem("theme");
+        }
+        return window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+      })();
+      document.documentElement.classList.toggle("dark", theme === "dark");
+    </script>
+
+    <!-- Font & Layout Stability (Addy Osmani) -->
+    <style is:inline>
+      html {
+        font-display: swap;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(schema)}
+    />
+  </head>
+  <body
+    class="selection:bg-action selection:text-white flex flex-col min-h-screen"
+  >
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-action text-white px-4 py-2 rounded-pill z-50 font-bold shadow-lg"
+    >
+      Skip to content
+    </a>
+
+    <slot name="header" />
+
+    <main id="main" class="outline-none grow" tabindex="-1">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+    <script>
+      const handleScroll = () => {
+        if (window.location.hash) {
+          const el = document.querySelector(window.location.hash);
+          if (el) {
+            setTimeout(() => {
+              el.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }, 150);
+          }
+        }
+      };
+
+      // Solo ejecutamos el rescate si es una carga fresca o cambio de página
+      window.addEventListener("load", handleScroll);
+      document.addEventListener("astro:page-load", handleScroll);
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Global Accessibility Strategy */
+  :focus-visible {
+    outline: 2px solid var(--color-action);
+    outline-offset: 4px;
+  }
+
+  /* Smooth Theme Transitions */
+  body.js-ready {
+    transition:
+      background-color 0.3s var(--transition-vercel),
+      color 0.3s var(--transition-vercel);
+  }
+</style>

@@ -1,0 +1,206 @@
+---
+/**
+ * SolutionsTabs Component
+ * Performance: Optimized for INP (Interaction to Next Paint) via requestAnimationFrame.
+ * SEO: Semantic article/aside structure for better crawlability.
+ */
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const ids = ["operations", "hr", "sales", "product"] as const;
+const verticals = ids.map((id) => ({
+  id,
+  label: t(`solutions.v.${id}.label` as any),
+  title: t(`solutions.v.${id}.title` as any),
+  description: t(`solutions.v.${id}.desc` as any),
+  features: [
+    t(`solutions.v.${id}.f1` as any),
+    t(`solutions.v.${id}.f2` as any),
+    t(`solutions.v.${id}.f3` as any),
+  ],
+  cta: t(`solutions.v.${id}.cta` as any),
+}));
+
+const initial = verticals[0];
+---
+
+<section
+  id="solutions"
+  class="py-24 bg-white dark:bg-brand-black transition-colors overflow-hidden"
+>
+  <div class="container mx-auto px-6 text-center mb-16">
+    <h2
+      class="text-4xl md:text-6xl font-bold text-heading dark:text-white tracking-tightest mb-4"
+    >
+      {t("solutions.main.title")}
+    </h2>
+    <p class="text-text-body text-xl max-w-3xl mx-auto">
+      {t("solutions.main.desc")}
+    </p>
+  </div>
+
+  <div class="container mx-auto px-6 grid lg:grid-cols-12 gap-12 items-start">
+    <!-- Vertical Sidebar: Semantic aside for navigation links -->
+    <aside
+      class="lg:col-span-3 flex flex-col space-y-2"
+      aria-label="Vertical solutions"
+    >
+      {
+        verticals.map((v, index) => (
+          <button
+            data-tab-target={v.id}
+            class="tab-btn text-left px-6 py-4 rounded-inner font-bold transition-all duration-300 border-l-4 border-transparent hover:bg-brand-off-white dark:hover:bg-white/5 text-text-body data-[active=true]:bg-brand-navy/5 data-[active=true]:border-brand-navy data-[active=true]:text-brand-navy dark:data-[active=true]:bg-brand-yellow/10 dark:data-[active=true]:border-brand-yellow dark:data-[active=true]:text-brand-yellow cursor-pointer outline-none focus-visible:ring-2 focus-visible:ring-brand-orange"
+            data-active={index === 0 ? "true" : "false"}
+            aria-selected={index === 0 ? "true" : "false"}
+          >
+            {v.label}
+          </button>
+        ))
+      }
+    </aside>
+
+    <!-- Content Card: Semantic article with ARIA live region -->
+    <article
+      class="lg:col-span-9 bg-brand-off-white dark:bg-white/5 p-8 md:p-12 rounded-card border border-gray-100 dark:border-white/10 shadow-sm relative min-h-145 flex items-center"
+      aria-live="polite"
+    >
+      <div class="grid md:grid-cols-2 gap-12 items-center w-full">
+        <div id="tab-content-container" class="transition-opacity duration-300">
+          <h3
+            class="text-3xl font-bold text-heading dark:text-white mb-4"
+            id="content-title"
+          >
+            {initial.title}
+          </h3>
+          <p
+            class="text-text-body mb-8 leading-relaxed text-lg"
+            id="content-desc"
+          >
+            {initial.description}
+          </p>
+
+          <ul class="space-y-4 mb-10" id="content-features">
+            {
+              initial.features.map((f) => (
+                <li class="flex items-start gap-3">
+                  <span
+                    class="text-brand-orange dark:text-brand-yellow font-bold"
+                    aria-hidden="true"
+                  >
+                    ✔
+                  </span>
+                  <span class="text-text-body">{f}</span>
+                </li>
+              ))
+            }
+          </ul>
+
+          <a
+            href="#contact"
+            class="inline-flex items-center font-bold text-brand-navy dark:text-brand-yellow group hover:gap-2 transition-all"
+          >
+            <span id="content-cta">{initial.cta}</span>
+            <span
+              class="ml-2 group-hover:translate-x-1 transition-transform"
+              aria-hidden="true">→</span
+            >
+          </a>
+        </div>
+
+        <!-- UI Mockup Illustration -->
+        <div class="relative hidden md:block" aria-hidden="true">
+          <div
+            class="absolute -inset-4 bg-brand-navy/5 dark:bg-brand-yellow/10 blur-2xl rounded-full"
+          >
+          </div>
+          <div
+            class="relative bg-white dark:bg-brand-black rounded-inner p-4 shadow-2xl border border-gray-100 dark:border-white/10"
+          >
+            <div class="flex gap-1.5 mb-6 px-1">
+              <div class="w-2 h-2 rounded-full bg-gray-200 dark:bg-white/20">
+              </div>
+              <div class="w-2 h-2 rounded-full bg-gray-200 dark:bg-white/20">
+              </div>
+              <div class="w-2 h-2 rounded-full bg-gray-200 dark:bg-white/20">
+              </div>
+            </div>
+            <div
+              class="aspect-video bg-brand-off-white dark:bg-white/5 rounded-inner flex items-end p-6 gap-3"
+            >
+              <div
+                class="w-1/4 h-[40%] bg-brand-navy/30 dark:bg-brand-yellow/30 rounded-t animate-pulse"
+              >
+              </div>
+              <div
+                class="w-1/4 h-[75%] bg-brand-navy/50 dark:bg-brand-yellow/50 rounded-t animate-pulse delay-75"
+              >
+              </div>
+              <div
+                class="w-1/4 h-[95%] bg-brand-orange/70 dark:bg-brand-yellow/70 rounded-t animate-pulse delay-150"
+              >
+              </div>
+              <div
+                class="w-1/4 h-[55%] bg-brand-navy/40 dark:bg-brand-yellow/40 rounded-t animate-pulse delay-300"
+              >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<script define:vars={{ verticals }}>
+  const btns = document.querySelectorAll(".tab-btn");
+  const container = document.getElementById("tab-content-container");
+  const title = document.getElementById("content-title");
+  const desc = document.getElementById("content-desc");
+  const featuresList = document.getElementById("content-features");
+  const cta = document.getElementById("content-cta");
+
+  const updateTab = (id) => {
+    const data = verticals.find((v) => v.id === id);
+    if (!data) return;
+
+    // Phase 1: Fade out
+    container.style.opacity = "0";
+
+    // Phase 2: Update content after fade out duration (200ms)
+    setTimeout(() => {
+      title.textContent = data.title;
+      desc.textContent = data.description;
+      cta.textContent = data.cta;
+
+      featuresList.innerHTML = data.features
+        .map(
+          (f) => `
+          <li class="flex items-start gap-3">
+            <span class="text-brand-orange dark:text-brand-yellow font-bold">✔</span>
+            <span class="text-text-body">${f}</span>
+          </li>
+        `,
+        )
+        .join("");
+
+      btns.forEach((b) => {
+        const isActive = b.getAttribute("data-tab-target") === id;
+        b.setAttribute("data-active", isActive);
+        b.setAttribute("aria-selected", isActive);
+      });
+
+      // Phase 3: Fade in using requestAnimationFrame for smooth INP
+      requestAnimationFrame(() => {
+        container.style.opacity = "1";
+      });
+    }, 200);
+  };
+
+  btns.forEach((btn) => {
+    btn.addEventListener("click", () =>
+      updateTab(btn.getAttribute("data-tab-target")),
+    );
+  });
+</script>

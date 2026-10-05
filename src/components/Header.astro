@@ -1,0 +1,92 @@
+---
+import { Image } from "astro:assets";
+import logoImage from "../assets/logo.png";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+import LanguagePicker from "./LanguagePicker.astro";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+/**
+ * Header Component
+ * Optimized for Astro 5.x and company Design System v6.0
+ */
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Navigation links using i18n keys and hashed IDs for single-page scrolling
+const navLinks = [
+  { href: "#", label: t("nav.home") },
+  { href: "#solutions", label: t("nav.solutions") },
+  { href: "#expertise", label: t("nav.expertise") },
+  { href: "#vacancies", label: t("nav.vacancies") },
+  { href: "#about", label: t("nav.about") },
+];
+---
+
+<header
+  class="fixed w-full z-50 bg-white/80 dark:bg-brand-black/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 transition-colors duration-300"
+>
+  <nav
+    class="container mx-auto px-6 h-20 flex items-center justify-between"
+    aria-label="Global Navigation"
+  >
+    <!-- Logo Section: Prioritizes LCP with eager loading -->
+    <a
+      href={`/`}
+      class="flex items-center gap-4 group focus-visible:outline-none"
+      aria-label="company Home"
+    >
+      <div
+        class="w-12 h-12 overflow-hidden rounded-inner shadow-md group-hover:scale-105 transition-transform duration-300"
+      >
+        <Image
+          src={logoImage}
+          alt="company Logo"
+          width={48}
+          height={48}
+          class="object-cover w-full h-full"
+          loading="eager"
+        />
+      </div>
+      <span
+        class="text-2xl font-bold tracking-tightest text-heading dark:text-white"
+      >
+        company
+      </span>
+    </a>
+
+    <!-- Desktop Navigation: Integrated with Brand Tokens -->
+    <div class="hidden md:flex items-center gap-8">
+      <ul class="flex items-center gap-8 list-none m-0 p-0">
+        {
+          navLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-sm font-medium text-body hover:text-action transition-colors duration-vercel"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <LanguagePicker />
+
+      <!-- Systematic Divider -->
+      <div class="w-px h-4 bg-gray-200 dark:bg-white/10" aria-hidden="true">
+      </div>
+
+      <ThemeSwitcher />
+
+      <!-- CTA Button: Dynamic Mode Mapping (Orange in Light / Yellow in Dark) -->
+      <a
+        href="#contact"
+        class="bg-action text-white dark:text-brand-black px-6 py-2.5 rounded-pill text-sm font-bold hover:scale-105 transition-all duration-vercel active:scale-95 shadow-lg shadow-action/20"
+      >
+        {t("nav.contact")}
+      </a>
+    </div>
+  </nav>
+</header>
