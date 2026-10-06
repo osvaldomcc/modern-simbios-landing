@@ -10,10 +10,12 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import Header from "../../components/Header.astro";
 import Hero from "../../components/Hero.astro";
 import SocialProof from "../../components/SocialProof.astro";
+import Capabilities from "../../components/Capabilities.astro";
 import SolutionsTabs from "../../components/SolutionsTabs.astro";
 import ValueProp from "../../components/ValueProp.astro";
 import About from "../../components/About.astro";
 import Career from "../../components/Career.astro";
+import Offices from "../../components/Offices.astro";
 import ContactForm from "../../components/ContactForm.astro";
 
 interface Props {}
@@ -40,10 +42,13 @@ const t = useTranslations(lang);
   <!-- Social Proof: Marquee with edge-fades -->
   <SocialProof />
 
+  <!-- Capabilities: technology stacks and hireable profiles -->
+  <Capabilities />
+
   <!-- Solutions Grid: Tabbed Interaction -->
   <section
     id="solutions"
-    class="py-24 bg-surface dark:bg-brand-black transition-colors"
+    class="py-24 bg-white dark:bg-brand-black transition-colors scroll-mt-20"
   >
     <div class="container mx-auto px-6">
       <header class="text-center mb-16">
@@ -65,7 +70,7 @@ const t = useTranslations(lang);
   <!-- Expertise & Value Prop Section -->
   <section
     id="expertise"
-    class="py-24 bg-white dark:bg-brand-black transition-colors"
+    class="py-24 bg-surface dark:bg-brand-black transition-colors scroll-mt-20"
   >
     <div class="container mx-auto px-6">
       <header class="text-center mb-16">
@@ -87,12 +92,13 @@ const t = useTranslations(lang);
   <!-- Content Sections -->
   <About />
   <Career />
+  <Offices />
   <ContactForm />
 
   <!-- Final Advantage Call-out -->
   <section
     id="advantage"
-    class="py-24 bg-surface dark:bg-brand-black transition-colors"
+    class="py-24 bg-white dark:bg-brand-black transition-colors scroll-mt-20"
   >
     <div class="container mx-auto px-6 text-center">
       <h2
