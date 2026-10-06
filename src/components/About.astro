@@ -17,7 +17,7 @@ const aboutImage =
 
 <section
   id="about"
-  class="py-24 bg-surface dark:bg-brand-black transition-colors duration-vercel scroll-mt-12"
+  class="py-24 bg-white dark:bg-brand-black transition-colors duration-vercel scroll-mt-20"
 >
   <div class="container mx-auto px-6">
     <div
@@ -79,6 +79,25 @@ const aboutImage =
             {t("about.description.2")}
           </p>
         </div>
+
+        <!-- Credibility Stats -->
+        <dl class="mt-12 grid grid-cols-3 gap-6">
+          {
+            ["years", "offices", "degrees"].map((stat) => (
+              <div class="border-l-2 border-brand-orange/40 dark:border-brand-yellow/40 pl-4">
+                <dt class="sr-only">
+                  {t(`about.stat.${stat}.label` as any)}
+                </dt>
+                <dd class="text-3xl lg:text-4xl font-bold text-heading dark:text-white tracking-tightest mb-1">
+                  {t(`about.stat.${stat}.value` as any)}
+                </dd>
+                <dd class="text-xs text-text-body dark:text-gray-400 leading-snug">
+                  {t(`about.stat.${stat}.label` as any)}
+                </dd>
+              </div>
+            ))
+          }
+        </dl>
 
         <!-- Team Social Proof Grid -->
         <div class="mt-12 flex items-center gap-6">
