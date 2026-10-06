@@ -3,7 +3,9 @@ import { Image } from "astro:assets";
 import logoImage from "../assets/logo.png";
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 import LanguagePicker from "./LanguagePicker.astro";
+import { languages } from "../i18n/ui";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 /**
  * Header Component
@@ -13,9 +15,17 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+// Locale-aware path (consistent with prefixDefaultLocale: false)
+const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+const currentPath = Object.keys(languages).includes(pathSegments[0])
+  ? `/${pathSegments.slice(1).join("/")}`
+  : `/${pathSegments.join("/")}`;
+const normalizedPath = currentPath.replace(/\/+/g, "/") || "/";
+
 // Navigation links using i18n keys and hashed IDs for single-page scrolling
 const navLinks = [
   { href: "#", label: t("nav.home") },
+  { href: "#services", label: t("nav.services") },
   { href: "#solutions", label: t("nav.solutions") },
   { href: "#expertise", label: t("nav.expertise") },
   { href: "#vacancies", label: t("nav.vacancies") },
@@ -32,7 +42,7 @@ const navLinks = [
   >
     <!-- Logo Section: Prioritizes LCP with eager loading -->
     <a
-      href={`/`}
+      href={getRelativeLocaleUrl(lang, "/").replace(/\/+/g, "/")}
       class="flex items-center gap-4 group focus-visible:outline-none"
       aria-label="company Home"
     >
@@ -56,7 +66,7 @@ const navLinks = [
     </a>
 
     <!-- Desktop Navigation: Integrated with Brand Tokens -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden xl:flex items-center gap-8">
       <ul class="flex items-center gap-8 list-none m-0 p-0">
         {
           navLinks.map((link) => (
@@ -88,5 +98,102 @@ const navLinks = [
         {t("nav.contact")}
       </a>
     </div>
+
+    <!-- Mobile / Tablet Navigation: CSS-only disclosure -->
+    <details class="xl:hidden relative" id="mobile-nav">
+      <summary
+        class="flex items-center gap-2 cursor-pointer list-none select-none px-5 py-2.5 rounded-pill border border-gray-200 dark:border-white/10 text-sm font-bold text-heading dark:text-white hover:border-action transition-colors duration-vercel [&::-webkit-details-marker]:hidden"
+        aria-label={t("nav.menu")}
+      >
+        {t("nav.menu")}
+        <span class="text-action" aria-hidden="true">▾</span>
+      </summary>
+
+      <div
+        class="absolute right-0 top-full mt-3 w-72 max-w-[calc(100vw-2rem)] rounded-card bg-white/98 dark:bg-brand-black/98 backdrop-blur-2xl border border-gray-100 dark:border-white/10 shadow-2xl p-5"
+      >
+        <ul class="space-y-1 list-none m-0 p-0">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="block px-3 py-3 rounded-inner text-sm font-medium text-heading dark:text-white hover:bg-brand-off-white dark:hover:bg-white/10 hover:text-action transition-colors duration-vercel"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+
+        <div
+          class="mt-4 pt-4 border-t border-gray-100 dark:border-white/10 space-y-3"
+        >
+          <!-- Touch-friendly language switcher (hover popovers do not work on mobile) -->
+          <nav
+            class="flex flex-wrap items-center gap-2"
+            aria-label="Language Selector"
+          >
+            {
+              Object.entries(languages).map(([code]) => {
+                const href = getRelativeLocaleUrl(
+                  code,
+                  normalizedPath,
+                ).replace(/\/+/g, "/");
+
+                return (
+                  <a
+                    href={href}
+                    hreflang={code}
+                    aria-current={code === lang ? "true" : undefined}
+                    class={`px-3 py-2 rounded-pill text-[10px] font-bold uppercase tracking-widest border transition-colors duration-vercel ${
+                      code === lang
+                        ? "border-action text-action bg-action/10"
+                        : "border-gray-200 dark:border-white/10 text-text-body/60 hover:text-heading dark:hover:text-white"
+                    }`}
+                  >
+                    {code}
+                  </a>
+                );
+              })
+            }
+          </nav>
+
+          <a
+            href="#contact"
+            class="block w-full text-center bg-action text-white dark:text-brand-black px-5 py-3 rounded-pill text-sm font-bold hover:scale-[1.02] transition-all duration-vercel active:scale-95"
+          >
+            {t("nav.contact")}
+          </a>
+        </div>
+      </div>
+    </details>
   </nav>
 </header>
+
+<script>
+  const mobileNav = document.getElementById(
+    "mobile-nav",
+  ) as HTMLDetailsElement | null;
+
+  const closeMobileNav = () => mobileNav?.removeAttribute("open");
+
+  // Close after navigating to an in-page anchor
+  document
+    .querySelectorAll("#mobile-nav a[href^='#']")
+    .forEach((link) => link.addEventListener("click", closeMobileNav));
+
+  // Close on click outside
+  document.addEventListener("click", (event) => {
+    if (!mobileNav?.open) return;
+    if (event.target instanceof Node && !mobileNav.contains(event.target)) {
+      closeMobileNav();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeMobileNav();
+  });
+</script>
