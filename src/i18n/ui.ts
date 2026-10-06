@@ -15,13 +15,13 @@ const englishTranslations = {
   "hero.cta": "Book a Consultation",
   "hero.badge.years": "20+ Years",
   "hero.badge.label": "Industry Expertise",
-  "about.badge": "Est. 2004 · country",
+  "about.badge": "Est. 2004 · Belgium",
   "about.title.part1": "About",
   "about.title.highlight": "company",
   "about.description.1":
-    "At company, we believe that technology should be an enabler, not a hurdle. Based in country, our team of senior consultants and developers specializes in transforming complex technical challenges into streamlined digital experiences.",
+    "company is an engineering consultancy, not a staffing shop. Every consultant holds a university degree, most of them a postgraduate one, and goes through a technical interview before ever joining your team.",
   "about.description.2":
-    "We partner with companies to build the backbone of their digital future.",
+    "From our three Belgian offices we place senior engineers, architects and DevOps profiles inside your squads, working time & material with no lock-in.",
   "about.social_proof": "Trusted by 50+ Enterprises",
   "career.badge": "● Open Positions",
   "career.title.part1": "Build Operational",
@@ -131,6 +131,115 @@ const englishTranslations = {
   "value.p.agile.title": "Agile Methodology",
   "value.p.agile.desc":
     "Faster delivery cycles with transparent communication at every stage.",
+  "nav.services": "Services",
+  "capabilities.badge": "● What we build",
+  "capabilities.title.part1": "Engineering",
+  "capabilities.title.highlight": "Capabilities.",
+  "capabilities.subtitle":
+    "Five delivery practices, one senior team. We staff projects with engineers who ship, from legacy modernization to cloud-native products.",
+  "capabilities.group.backend": "Backend & Enterprise",
+  "capabilities.group.frontend": "Frontend & Web",
+  "capabilities.group.mobile": "Mobile",
+  "capabilities.group.cloud": "Cloud & Integration",
+  "capabilities.group.data": "Data & Business Apps",
+  "capabilities.stack.backend.1": "Java / Jakarta EE",
+  "capabilities.stack.backend.2": ".NET & C#",
+  "capabilities.stack.backend.3": "Python & Django",
+  "capabilities.stack.backend.4": "PHP & Node.js",
+  "capabilities.stack.frontend.1": "TypeScript, React & Angular",
+  "capabilities.stack.frontend.2": "HTML5, CSS3 & Design Systems",
+  "capabilities.stack.frontend.3": "REST & GraphQL APIs",
+  "capabilities.stack.mobile.1": "Native iOS & Android",
+  "capabilities.stack.mobile.2": ".NET MAUI & React Native",
+  "capabilities.stack.mobile.3": "Offline-first field apps",
+  "capabilities.stack.cloud.1": "Azure, AWS & Google Cloud",
+  "capabilities.stack.cloud.2": "CI/CD, IaC & container platforms",
+  "capabilities.stack.cloud.3": "Service buses & message brokers",
+  "capabilities.stack.data.1": "Oracle, SQL Server & PostgreSQL",
+  "capabilities.stack.data.2": "ETL, warehousing & BI",
+  "capabilities.stack.data.3": "SharePoint & MS Dynamics",
+  "capabilities.profiles.title": "Profiles you can hire",
+  "capabilities.profiles.1": "Medior & senior developers",
+  "capabilities.profiles.2": "Solution architects",
+  "capabilities.profiles.3": "DevOps & platform engineers",
+  "capabilities.profiles.4": "Project managers & analysts",
+  "capabilities.profiles.5": "Technical & functional consultants",
+  "capabilities.cta": "Discuss your project",
+  "career.filter.backend": "Backend",
+  "career.filter.frontend": "Frontend",
+  "career.filter.mobile": "Mobile",
+  "career.filter.data": "Data",
+  "career.type.hybrid": "Hybrid",
+  "career.type.remote": "Remote",
+  "career.type.onsite": "Client site",
+  "career.roles.backend.title": "Senior Java Engineer",
+  "career.roles.backend.desc":
+    "Design and evolve mission-critical services on the JVM, from Spring Boot APIs to event-driven integrations.",
+  "career.roles.dotnet.title": ".NET Solution Developer",
+  "career.roles.dotnet.desc":
+    "Build and modernize business applications on .NET with clean architecture and automated delivery pipelines.",
+  "career.roles.python.title": "Python Engineer",
+  "career.roles.python.desc":
+    "Deliver data services, automation and back-end tooling for fast-moving product teams.",
+  "career.roles.frontend.title": "Frontend Engineer (React & TypeScript)",
+  "career.roles.frontend.desc":
+    "Turn complex flows into fast, accessible interfaces built with React, TypeScript and a disciplined design system.",
+  "career.roles.mobile.title": "Mobile Engineer (.NET MAUI)",
+  "career.roles.mobile.desc":
+    "Ship cross-platform mobile apps that stay reliable offline and feel native on every device.",
+  "career.roles.data.title": "Oracle Database Engineer",
+  "career.roles.data.desc":
+    "Own schemas, performance and migration paths for large Oracle and SQL Server estates.",
+  "career.quals.title": "What we look for",
+  "career.quals.1": "At least 5 years of hands-on experience in your stack",
+  "career.quals.2":
+    "A university degree in computer science, or equivalent experience",
+  "career.quals.3":
+    "Comfort across several frameworks, tools and databases (SQL and NoSQL)",
+  "career.quals.4":
+    "Fluent written and spoken English; Dutch or French is a plus",
+  "career.quals.5":
+    "A problem-solving mindset and appetite for broad technical exposure",
+  "career.quals.6":
+    "Team player, communicative and flexible with changing priorities",
+  "career.quals.7":
+    "Certifications (Microsoft, Oracle, AWS, Google) are a plus",
+  "career.mission.title": "What the role involves",
+  "career.mission.1": "Design, build, test and document software that lasts",
+  "career.mission.2":
+    "Apply standards for security, performance and code quality",
+  "career.mission.3": "Promote reusable components and share them with the team",
+  "career.mission.4": "Support clients directly, from estimation to go-live",
+  "career.offer.title": "What you get",
+  "career.offer.1": "A permanent contract with a competitive European salary",
+  "career.offer.2":
+    "Long-term assignments that match your seniority and ambitions",
+  "career.offer.3": "A laptop and a budget for training and certifications",
+  "career.offer.4":
+    "Relocation support: paperwork, housing and local onboarding",
+  "career.offer.5": "A senior peer group that reviews, pairs and mentors",
+  "offices.badge": "● Where to find us",
+  "offices.title.part1": "Three offices,",
+  "offices.title.highlight": "one team.",
+  "offices.subtitle":
+    "Pick the office closest to your project, or work with us fully remote across Belgium.",
+  "offices.hq.label": "Headquarters",
+  "offices.hq.city": "Brussels",
+  "offices.walloon.label": "Wallonia Office",
+  "offices.walloon.city": "Rochefort",
+  "offices.flanders.label": "Flanders Office",
+  "offices.flanders.city": "Buggenhout",
+  "offices.call": "Call us",
+  "offices.write": "Email us",
+  "about.stat.years.value": "20+",
+  "about.stat.years.label": "Years delivering IT projects",
+  "about.stat.offices.value": "3",
+  "about.stat.offices.label": "Offices across Belgium",
+  "about.stat.degrees.value": "25%",
+  "about.stat.degrees.label": "Team with a postgraduate degree",
+  "footer.vat": "VAT",
+  "footer.location": "Brussels · Belgium",
+  "nav.menu": "Menu",
   "switcher.popover": "Toggle theme",
 };
 
@@ -149,9 +258,9 @@ const spanishTranslations: TRANSLATION = {
   "about.title.part1": "Sobre",
   "about.title.highlight": "company",
   "about.description.1":
-    "En company, creemos que la tecnología debe ser un facilitador, no un obstáculo. Con sede en Bélgica, nuestro equipo de consultores y desarrolladores senior se especializa en transformar desafíos técnicos complejos en experiencias digitales optimizadas.",
+    "company es una consultoría de ingeniería, no una agencia de personal. Cada consultor tiene título universitario, la mayoría con posgrado, y supera una entrevista técnica antes de unirse a tu equipo.",
   "about.description.2":
-    "Nos asociamos con empresas para construir la columna vertebral de su futuro digital.",
+    "Desde nuestras tres oficinas en Bélgica colocamos ingenieros senior, arquitectos y perfiles DevOps dentro de tus squads, con modelo time & material y sin ataduras.",
   "about.social_proof": "Confiado por más de 50 empresas",
   "career.badge": "● Posiciones Abiertas",
   "career.title.part1": "Construye el",
@@ -259,6 +368,121 @@ const spanishTranslations: TRANSLATION = {
   "value.p.agile.title": "Metodología Ágil",
   "value.p.agile.desc":
     "Ciclos de entrega más rápidos con comunicación transparente en cada etapa.",
+  "nav.services": "Servicios",
+  "capabilities.badge": "● Lo que construimos",
+  "capabilities.title.part1": "Capacidades de",
+  "capabilities.title.highlight": "Ingeniería.",
+  "capabilities.subtitle":
+    "Cinco prácticas de entrega, un solo equipo senior. Cubrimos proyectos con ingenieros que entregan, desde la modernización de sistemas heredados hasta productos cloud-native.",
+  "capabilities.group.backend": "Backend y Empresarial",
+  "capabilities.group.frontend": "Frontend y Web",
+  "capabilities.group.mobile": "Móvil",
+  "capabilities.group.cloud": "Cloud e Integración",
+  "capabilities.group.data": "Datos y Aplicaciones de Negocio",
+  "capabilities.stack.backend.1": "Java / Jakarta EE",
+  "capabilities.stack.backend.2": ".NET y C#",
+  "capabilities.stack.backend.3": "Python y Django",
+  "capabilities.stack.backend.4": "PHP y Node.js",
+  "capabilities.stack.frontend.1": "TypeScript, React y Angular",
+  "capabilities.stack.frontend.2": "HTML5, CSS3 y Design Systems",
+  "capabilities.stack.frontend.3": "APIs REST y GraphQL",
+  "capabilities.stack.mobile.1": "iOS y Android nativas",
+  "capabilities.stack.mobile.2": ".NET MAUI y React Native",
+  "capabilities.stack.mobile.3": "Aplicaciones de campo offline-first",
+  "capabilities.stack.cloud.1": "Azure, AWS y Google Cloud",
+  "capabilities.stack.cloud.2": "CI/CD, IaC y contenedores",
+  "capabilities.stack.cloud.3": "Service buses y colas de mensajería",
+  "capabilities.stack.data.1": "Oracle, SQL Server y PostgreSQL",
+  "capabilities.stack.data.2": "ETL, data warehouse y BI",
+  "capabilities.stack.data.3": "SharePoint y MS Dynamics",
+  "capabilities.profiles.title": "Perfiles que puedes contratar",
+  "capabilities.profiles.1": "Desarrolladores medior y senior",
+  "capabilities.profiles.2": "Arquitectos de solución",
+  "capabilities.profiles.3": "Ingenieros DevOps y de plataforma",
+  "capabilities.profiles.4": "Project managers y analistas",
+  "capabilities.profiles.5": "Consultores técnicos y funcionales",
+  "capabilities.cta": "Hablemos de tu proyecto",
+  "career.filter.backend": "Backend",
+  "career.filter.frontend": "Frontend",
+  "career.filter.mobile": "Móvil",
+  "career.filter.data": "Datos",
+  "career.type.hybrid": "Híbrido",
+  "career.type.remote": "Remoto",
+  "career.type.onsite": "En cliente",
+  "career.roles.backend.title": "Ingeniero Java Senior",
+  "career.roles.backend.desc":
+    "Diseña y evoluciona servicios críticos sobre la JVM, desde APIs con Spring Boot hasta integraciones orientadas a eventos.",
+  "career.roles.dotnet.title": "Desarrollador de Soluciones .NET",
+  "career.roles.dotnet.desc":
+    "Construye y moderniza aplicaciones de negocio sobre .NET con arquitectura limpia y pipelines de entrega automatizados.",
+  "career.roles.python.title": "Ingeniero Python",
+  "career.roles.python.desc":
+    "Entrega servicios de datos, automatización y herramientas de backend para equipos de producto ágiles.",
+  "career.roles.frontend.title": "Ingeniero Frontend (React y TypeScript)",
+  "career.roles.frontend.desc":
+    "Convierte flujos complejos en interfaces rápidas y accesibles construidas con React, TypeScript y un design system disciplinado.",
+  "career.roles.mobile.title": "Ingeniero Móvil (.NET MAUI)",
+  "career.roles.mobile.desc":
+    "Lanza apps multiplataforma que se mantienen fiables sin conexión y se sienten nativas en cada dispositivo.",
+  "career.roles.data.title": "Ingeniero de Bases de Datos Oracle",
+  "career.roles.data.desc":
+    "Responsable de esquemas, rendimiento y rutas de migración en grandes entornos Oracle y SQL Server.",
+  "career.quals.title": "Lo que buscamos",
+  "career.quals.1": "Al menos 5 años de experiencia práctica en tu stack",
+  "career.quals.2":
+    "Título universitario en informática o experiencia equivalente",
+  "career.quals.3":
+    "Manejo de varios frameworks, herramientas y bases de datos (SQL y NoSQL)",
+  "career.quals.4":
+    "Inglés escrito y hablado con fluidez; el neerlandés o el francés es una ventaja",
+  "career.quals.5":
+    "Mentalidad resolutiva y ganas de exposición técnica amplia",
+  "career.quals.6":
+    "Trabajo en equipo, comunicación fluida y flexibilidad ante cambios de prioridad",
+  "career.quals.7":
+    "Las certificaciones (Microsoft, Oracle, AWS, Google) son una ventaja",
+  "career.mission.title": "En qué consiste el puesto",
+  "career.mission.1":
+    "Diseñar, construir, probar y documentar software que dure",
+  "career.mission.2":
+    "Aplicar estándares de seguridad, rendimiento y calidad de código",
+  "career.mission.3":
+    "Promover componentes reutilizables y compartirlos con el equipo",
+  "career.mission.4":
+    "Dar soporte directo al cliente, desde la estimación hasta el go-live",
+  "career.offer.title": "Lo que ofrecemos",
+  "career.offer.1":
+    "Contrato indefinido con salario competitivo europeo",
+  "career.offer.2":
+    "Asignaciones a largo plazo acordes a tu seniority y ambiciones",
+  "career.offer.3":
+    "Portátil y presupuesto para formación y certificaciones",
+  "career.offer.4":
+    "Ayuda con la reubicación: papeleo, vivienda y onboarding local",
+  "career.offer.5":
+    "Un grupo de pares senior que revisa, empareja y hace mentoring",
+  "offices.badge": "● Dónde encontrarnos",
+  "offices.title.part1": "Tres oficinas,",
+  "offices.title.highlight": "un solo equipo.",
+  "offices.subtitle":
+    "Elige la oficina más cercana a tu proyecto o trabaja con nosotros en remoto desde toda Bélgica.",
+  "offices.hq.label": "Sede central",
+  "offices.hq.city": "Bruselas",
+  "offices.walloon.label": "Oficina de Valonia",
+  "offices.walloon.city": "Rochefort",
+  "offices.flanders.label": "Oficina de Flandes",
+  "offices.flanders.city": "Buggenhout",
+  "offices.call": "Llámanos",
+  "offices.write": "Escríbenos",
+  "about.stat.years.value": "20+",
+  "about.stat.years.label": "Años entregando proyectos de TI",
+  "about.stat.offices.value": "3",
+  "about.stat.offices.label": "Oficinas por toda Bélgica",
+  "about.stat.degrees.value": "25%",
+  "about.stat.degrees.label": "Equipo con posgrado",
+  "footer.vat": "IVA",
+  "footer.location": "Bruselas · Bélgica",
+  "nav.menu": "Menú",
   "switcher.popover": "Alternar tema",
 };
 
@@ -270,13 +494,13 @@ const frenchTranslations: TRANSLATION = {
   "hero.cta": "Prendre Rendez-vous",
   "hero.badge.years": "20+ Ans",
   "hero.badge.label": "Expertise du Secteur",
-  "about.badge": "Fondé en 2004 · Country",
+  "about.badge": "Fondé en 2004 · Belgique",
   "about.title.part1": "À propos de",
   "about.title.highlight": "company",
   "about.description.1":
-    "Chez company, nous pensons que la technologie doit être un catalyseur, pas un obstacle. Basée en Country, notre équipe de consultants et de développeurs seniors est spécialisée dans la transformation de défis techniques complexes en expériences numériques fluides.",
+    "company est un cabinet d'ingénierie, pas un cabinet de placement. Chaque consultant est diplômé d'une université, la plupart avec un diplôme de troisième cycle, et passe un entretien technique avant de rejoindre votre équipe.",
   "about.description.2":
-    "Nous collaborons avec des entreprises pour construire l'épine dorsale de leur avenir numérique.",
+    "Depuis nos trois bureaux belges, nous intégrons des ingénieurs seniors, architectes et profils DevOps au sein de vos squads, en time & material et sans dépendance contractuelle.",
   "about.social_proof": "Approuvé par plus de 50 entreprises",
   "career.badge": "● Postes Ouverts",
   "career.title.part1": "Bâtissez le",
@@ -383,6 +607,121 @@ const frenchTranslations: TRANSLATION = {
   "value.p.agile.title": "Méthodologie Agile",
   "value.p.agile.desc":
     "Des cycles de livraison plus rapides avec une communication transparente.",
+  "nav.services": "Services",
+  "capabilities.badge": "● Ce que nous construisons",
+  "capabilities.title.part1": "Capacités",
+  "capabilities.title.highlight": "d'ingénierie.",
+  "capabilities.subtitle":
+    "Cinq pratiques de livraison, une seule équipe senior. Nous couvrons vos projets avec des ingénieurs qui livrent, de la modernisation du legacy aux produits cloud-native.",
+  "capabilities.group.backend": "Backend et Entreprise",
+  "capabilities.group.frontend": "Frontend et Web",
+  "capabilities.group.mobile": "Mobile",
+  "capabilities.group.cloud": "Cloud et Intégration",
+  "capabilities.group.data": "Données et Applications Métier",
+  "capabilities.stack.backend.1": "Java / Jakarta EE",
+  "capabilities.stack.backend.2": ".NET et C#",
+  "capabilities.stack.backend.3": "Python et Django",
+  "capabilities.stack.backend.4": "PHP et Node.js",
+  "capabilities.stack.frontend.1": "TypeScript, React et Angular",
+  "capabilities.stack.frontend.2": "HTML5, CSS3 et Design Systems",
+  "capabilities.stack.frontend.3": "API REST et GraphQL",
+  "capabilities.stack.mobile.1": "iOS et Android natives",
+  "capabilities.stack.mobile.2": ".NET MAUI et React Native",
+  "capabilities.stack.mobile.3": "Applications de terrain offline-first",
+  "capabilities.stack.cloud.1": "Azure, AWS et Google Cloud",
+  "capabilities.stack.cloud.2": "CI/CD, IaC et conteneurs",
+  "capabilities.stack.cloud.3": "Service buses et brokers de messages",
+  "capabilities.stack.data.1": "Oracle, SQL Server et PostgreSQL",
+  "capabilities.stack.data.2": "ETL, entrepôt de données et BI",
+  "capabilities.stack.data.3": "SharePoint et MS Dynamics",
+  "capabilities.profiles.title": "Profils que vous pouvez recruter",
+  "capabilities.profiles.1": "Développeurs medior et senior",
+  "capabilities.profiles.2": "Architectes solution",
+  "capabilities.profiles.3": "Ingénieurs DevOps et plateforme",
+  "capabilities.profiles.4": "Chefs de projet et analystes",
+  "capabilities.profiles.5": "Consultants techniques et fonctionnels",
+  "capabilities.cta": "Parlons de votre projet",
+  "career.filter.backend": "Backend",
+  "career.filter.frontend": "Frontend",
+  "career.filter.mobile": "Mobile",
+  "career.filter.data": "Données",
+  "career.type.hybrid": "Hybride",
+  "career.type.remote": "Télétravail",
+  "career.type.onsite": "Chez le client",
+  "career.roles.backend.title": "Ingénieur Java Senior",
+  "career.roles.backend.desc":
+    "Concevoir et faire évoluer des services critiques sur la JVM, des API Spring Boot aux intégrations événementielles.",
+  "career.roles.dotnet.title": "Développeur de Solutions .NET",
+  "career.roles.dotnet.desc":
+    "Construire et moderniser des applications métier sur .NET, avec architecture propre et pipelines de livraison automatisés.",
+  "career.roles.python.title": "Ingénieur Python",
+  "career.roles.python.desc":
+    "Livrer des services de données, de l'automatisation et des outils back-end pour des équipes produit agiles.",
+  "career.roles.frontend.title": "Ingénieur Frontend (React et TypeScript)",
+  "career.roles.frontend.desc":
+    "Transformer des parcours complexes en interfaces rapides et accessibles, construites avec React, TypeScript et un design system rigoureux.",
+  "career.roles.mobile.title": "Ingénieur Mobile (.NET MAUI)",
+  "career.roles.mobile.desc":
+    "Livrer des applications multiplateformes fiables hors ligne et naturelles sur chaque appareil.",
+  "career.roles.data.title": "Ingénieur Bases de Données Oracle",
+  "career.roles.data.desc":
+    "Piloter schémas, performance et trajectoires de migration sur de grands parcours Oracle et SQL Server.",
+  "career.quals.title": "Ce que nous recherchons",
+  "career.quals.1": "Au moins 5 ans d'expérience pratique sur votre stack",
+  "career.quals.2":
+    "Diplôme universitaire en informatique ou expérience équivalente",
+  "career.quals.3":
+    "Aisance sur plusieurs frameworks, outils et bases de données (SQL et NoSQL)",
+  "career.quals.4":
+    "Anglais courant à l'écrit comme à l'oral ; le néerlandais ou le français est un plus",
+  "career.quals.5":
+    "Envie de résoudre des problèmes et d'élargir son exposition technique",
+  "career.quals.6":
+    "Esprit d'équipe, bon communicant et flexible face aux priorités changeantes",
+  "career.quals.7":
+    "Les certifications (Microsoft, Oracle, AWS, Google) sont un atout",
+  "career.mission.title": "Le contenu du poste",
+  "career.mission.1":
+    "Concevoir, construire, tester et documenter un logiciel durable",
+  "career.mission.2":
+    "Appliquer les standards de sécurité, de performance et de qualité de code",
+  "career.mission.3":
+    "Promouvoir des composants réutilisables et les partager avec l'équipe",
+  "career.mission.4":
+    "Supporter le client directement, de l'estimation au go-live",
+  "career.offer.title": "Ce que nous offrons",
+  "career.offer.1":
+    "Un contrat permanent avec un salaire européen compétitif",
+  "career.offer.2":
+    "Des missions longues en adéquation avec votre séniorité et vos ambitions",
+  "career.offer.3":
+    "Un ordinateur portable et un budget de formation et de certifications",
+  "career.offer.4":
+    "Aide à la réinstallation : démarches, logement et intégration locale",
+  "career.offer.5":
+    "Un collectif de pairs seniors pour la revue de code, le pairing et le mentoring",
+  "offices.badge": "● Où nous trouver",
+  "offices.title.part1": "Trois bureaux,",
+  "offices.title.highlight": "une seule équipe.",
+  "offices.subtitle":
+    "Choisissez le bureau le plus proche de votre projet, ou travaillez avec nous entièrement à distance partout en Belgique.",
+  "offices.hq.label": "Siège social",
+  "offices.hq.city": "Bruxelles",
+  "offices.walloon.label": "Bureau de Wallonie",
+  "offices.walloon.city": "Rochefort",
+  "offices.flanders.label": "Bureau de Flandre",
+  "offices.flanders.city": "Buggenhout",
+  "offices.call": "Appelez-nous",
+  "offices.write": "Écrivez-nous",
+  "about.stat.years.value": "20+",
+  "about.stat.years.label": "Ans de projets IT livrés",
+  "about.stat.offices.value": "3",
+  "about.stat.offices.label": "Bureaux partout en Belgique",
+  "about.stat.degrees.value": "25%",
+  "about.stat.degrees.label": "Équipe avec un diplôme de troisième cycle",
+  "footer.vat": "TVA",
+  "footer.location": "Bruxelles · Belgique",
+  "nav.menu": "Menu",
   "switcher.popover": "Changer de thème",
 };
 
@@ -394,13 +733,13 @@ const dutchTranslations: TRANSLATION = {
   "hero.cta": "Boek een Consultatie",
   "hero.badge.years": "20+ Jaar",
   "hero.badge.label": "Industrie Expertise",
-  "about.badge": "Sinds 2004 · C",
+  "about.badge": "Sinds 2004 · België",
   "about.title.part1": "Over",
   "about.title.highlight": "company",
   "about.description.1":
-    "Bij company geloven we dat technologie een enabler moet zijn, geen hindernis. Ons team van senior consultants en ontwikkelaars, gevestigd in C, is gespecialiseerd in het transformeren van complexe technische uitdagingen naar gestroomlijnde digitale ervaringen.",
+    "company is een engineeringconsultancy, geen uitzendbureau. Elke consultant heeft een academische graad, de meesten een graduaat, en doorloopt een technisch gesprek voor het team vervoegt.",
   "about.description.2":
-    "Wij werken samen met bedrijven om de ruggengraat van hun digitale toekomst te bouwen.",
+    "Vanuit onze drie Belgische kantoren plaatsen we senior ingenieurs, architecten en DevOps-profielen in uw squads, werken we time & material en zitten er geen contractuele kluwen aan vast.",
   "about.social_proof": "Vertrouwd door 50+ ondernemingen",
   "career.badge": "● Openstaande Vacatures",
   "career.title.part1": "Bouw aan",
@@ -506,6 +845,121 @@ const dutchTranslations: TRANSLATION = {
   "value.p.agile.title": "Agile Methodologie",
   "value.p.agile.desc":
     "Snellere leveringscycli met transparante communicatie in elke fase.",
+  "nav.services": "Diensten",
+  "capabilities.badge": "● Wat we bouwen",
+  "capabilities.title.part1": "Engineering",
+  "capabilities.title.highlight": "Capabilities.",
+  "capabilities.subtitle":
+    "Vijf leverpraktijken, één senior team. Wij vullen projecten met ingenieurs die leveren, van legacy-modernisering tot cloud-native producten.",
+  "capabilities.group.backend": "Backend & Enterprise",
+  "capabilities.group.frontend": "Frontend & Web",
+  "capabilities.group.mobile": "Mobiel",
+  "capabilities.group.cloud": "Cloud & Integratie",
+  "capabilities.group.data": "Data & Bedrijfsapplicaties",
+  "capabilities.stack.backend.1": "Java / Jakarta EE",
+  "capabilities.stack.backend.2": ".NET & C#",
+  "capabilities.stack.backend.3": "Python & Django",
+  "capabilities.stack.backend.4": "PHP & Node.js",
+  "capabilities.stack.frontend.1": "TypeScript, React & Angular",
+  "capabilities.stack.frontend.2": "HTML5, CSS3 & Design Systems",
+  "capabilities.stack.frontend.3": "REST- en GraphQL-API's",
+  "capabilities.stack.mobile.1": "Native iOS & Android",
+  "capabilities.stack.mobile.2": ".NET MAUI & React Native",
+  "capabilities.stack.mobile.3": "Offline-first veldapplicaties",
+  "capabilities.stack.cloud.1": "Azure, AWS & Google Cloud",
+  "capabilities.stack.cloud.2": "CI/CD, IaC & containerplatforms",
+  "capabilities.stack.cloud.3": "Service buses & message brokers",
+  "capabilities.stack.data.1": "Oracle, SQL Server & PostgreSQL",
+  "capabilities.stack.data.2": "ETL, datawarehousing & BI",
+  "capabilities.stack.data.3": "SharePoint & MS Dynamics",
+  "capabilities.profiles.title": "Profielen die u kunt inhuren",
+  "capabilities.profiles.1": "Medior en senior ontwikkelaars",
+  "capabilities.profiles.2": "Oplossingsarchitecten",
+  "capabilities.profiles.3": "DevOps- en platformingenieurs",
+  "capabilities.profiles.4": "Projectmanagers en analisten",
+  "capabilities.profiles.5": "Technische en functionele consultants",
+  "capabilities.cta": "Bespreek uw project",
+  "career.filter.backend": "Backend",
+  "career.filter.frontend": "Frontend",
+  "career.filter.mobile": "Mobiel",
+  "career.filter.data": "Data",
+  "career.type.hybrid": "Hybride",
+  "career.type.remote": "Remote",
+  "career.type.onsite": "Op locatie",
+  "career.roles.backend.title": "Senior Java Engineer",
+  "career.roles.backend.desc":
+    "Ontwerp en laat bedrijfskritische services op de JVM evolueren, van Spring Boot-API's tot event-gedreven integraties.",
+  "career.roles.dotnet.title": ".NET Solution Developer",
+  "career.roles.dotnet.desc":
+    "Bouw en moderniseer bedrijfsapplicaties op .NET met schone architectuur en geautomatiseerde leveringspijplijnen.",
+  "career.roles.python.title": "Python Engineer",
+  "career.roles.python.desc":
+    "Lever dataservices, automatisering en back-end tooling voor productteams die snel vooruitgaan.",
+  "career.roles.frontend.title": "Frontend Engineer (React & TypeScript)",
+  "career.roles.frontend.desc":
+    "Zet complexe flows om in snelle, toegankelijke interfaces gebouwd met React, TypeScript en een gedisciplineerd design system.",
+  "career.roles.mobile.title": "Mobile Engineer (.NET MAUI)",
+  "career.roles.mobile.desc":
+    "Breng cross-platform mobiele apps uit die ook offline betrouwbaar blijven en op elk toestel native aanvoelen.",
+  "career.roles.data.title": "Oracle Database Engineer",
+  "career.roles.data.desc":
+    "Beheer schema's, prestaties en migratiepaden voor grote Oracle- en SQL Server-omgevingen.",
+  "career.quals.title": "Wat we zoeken",
+  "career.quals.1": "Minstens 5 jaar praktijkervaring in uw stack",
+  "career.quals.2":
+    "Een academische graad in informatica of gelijkwaardige ervaring",
+  "career.quals.3":
+    "Vreugde in meerdere frameworks, tools en databases (SQL en NoSQL)",
+  "career.quals.4":
+    "Vlot gesproken en geschreven Engels; Nederlands of Frans is een plus",
+  "career.quals.5":
+    "Een probleemoplossende mindset en interesse in brede technische ervaring",
+  "career.quals.6":
+    "Teamspeler, communicatief en flexibel bij wisselende prioriteiten",
+  "career.quals.7":
+    "Certificeringen (Microsoft, Oracle, AWS, Google) zijn een plus",
+  "career.mission.title": "Wat de rol inhoudt",
+  "career.mission.1":
+    "Software ontwerpen, bouwen, testen en documenteren die blijft staan",
+  "career.mission.2":
+    "Standaarden voor veiligheid, prestaties en codekwaliteit toepassen",
+  "career.mission.3":
+    "Herbruikbare componenten promoten en delen met het team",
+  "career.mission.4":
+    "Klanten rechtstreeks ondersteunen, van inschatting tot go-live",
+  "career.offer.title": "Wat u krijgt",
+  "career.offer.1":
+    "Een vast contract met een competitief Europees loon",
+  "career.offer.2":
+    "Langlopende opdrachten die passen bij uw senioriteit en ambities",
+  "career.offer.3":
+    "Een laptop en een budget voor opleiding en certificeringen",
+  "career.offer.4":
+    "Verhuissteun: papierwinkel, huisvesting en lokale onboarding",
+  "career.offer.5":
+    "Een collectief van senior peers voor codereview, pairing en mentoring",
+  "offices.badge": "● Waar u ons vindt",
+  "offices.title.part1": "Drie kantoren,",
+  "offices.title.highlight": "één team.",
+  "offices.subtitle":
+    "Kies het kantoor het dichtst bij uw project, of werk volledig remote met ons samen in heel België.",
+  "offices.hq.label": "Hoofdkantoor",
+  "offices.hq.city": "Brussel",
+  "offices.walloon.label": "Kantoor Wallonië",
+  "offices.walloon.city": "Rochefort",
+  "offices.flanders.label": "Kantoor Vlaanderen",
+  "offices.flanders.city": "Buggenhout",
+  "offices.call": "Bel ons",
+  "offices.write": "Mail ons",
+  "about.stat.years.value": "20+",
+  "about.stat.years.label": "Jaar IT-projecten opgeleverd",
+  "about.stat.offices.value": "3",
+  "about.stat.offices.label": "Kantoren in heel België",
+  "about.stat.degrees.value": "25%",
+  "about.stat.degrees.label": "Team met een graduaat",
+  "footer.vat": "BTW",
+  "footer.location": "Brussel · België",
+  "nav.menu": "Menu",
   "switcher.popover": "Thema omschakelen",
 };
 
