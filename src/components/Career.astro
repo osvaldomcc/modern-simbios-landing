@@ -1,66 +1,65 @@
 ---
 /**
  * Career Component
+ * Content: open roles of the engineering practice + what we look for / offer.
  * Performance: CSS-driven filtering for 0ms main-thread delay.
- * Design: Strategic featured card weighting and high-precision typography.
  */
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
+const filters = ["all", "backend", "frontend", "mobile", "data"];
+
 const jobs = [
   {
-    title: "Senior Backend Systems Engineer",
-    category: "engineering",
-    type: "Remote",
-    description:
-      "Design and scale high-availability distributed architectures. Lead the implementation of resilient microservices.",
+    id: "backend",
+    category: "backend",
+    type: "hybrid",
     isFeatured: true,
-    posted: "2 days ago",
   },
   {
-    title: "Product Designer (UX/UI)",
-    category: "design",
-    type: "Hybrid",
-    description:
-      "Translate complex flows into intuitive, minimalist interfaces. Maintain the design system.",
+    id: "dotnet",
+    category: "backend",
+    type: "onsite",
     isFeatured: false,
-    posted: "1 week ago",
   },
   {
-    title: "Cloud Security Architect",
-    category: "engineering",
-    type: "Remote",
-    description:
-      "Define the cloud security strategy. Operational silence means zero vulnerabilities.",
+    id: "python",
+    category: "data",
+    type: "remote",
     isFeatured: false,
-    posted: "3 days ago",
   },
   {
-    title: "Technical Account Manager",
-    category: "operations",
-    type: "Hybrid",
-    description:
-      "Ensure the flawless integration of our solutions in high-level enterprise environments.",
+    id: "frontend",
+    category: "frontend",
+    type: "hybrid",
     isFeatured: false,
-    posted: "5 days ago",
   },
   {
-    title: "Data Engineer",
-    category: "engineering",
-    type: "Hybrid",
-    description:
-      "Build robust pipelines to process millions of events in real-time with minimal latency.",
+    id: "mobile",
+    category: "mobile",
+    type: "remote",
     isFeatured: false,
-    posted: "5 days ago",
   },
+  {
+    id: "data",
+    category: "data",
+    type: "onsite",
+    isFeatured: false,
+  },
+];
+
+const details = [
+  { id: "quals", count: 7 },
+  { id: "mission", count: 4 },
+  { id: "offer", count: 5 },
 ];
 ---
 
 <section
   id="vacancies"
-  class="py-24 bg-surface dark:bg-brand-black transition-colors overflow-hidden"
+  class="py-24 bg-surface dark:bg-brand-black transition-colors overflow-hidden scroll-mt-20"
 >
   <div class="container mx-auto px-6">
     <!-- Systematic Header -->
@@ -86,7 +85,7 @@ const jobs = [
     <!-- Interactive Filter System (Astro & CSS Optimized) -->
     <nav class="flex flex-wrap gap-4 mb-16" aria-label="Job categories">
       {
-        ["all", "engineering", "design", "operations"].map((filter) => (
+        filters.map((filter) => (
           <button
             class="filter-btn group px-7 py-2.5 rounded-pill font-bold text-sm transition-all duration-vercel border border-gray-200 dark:border-white/10 hover:border-action dark:hover:border-brand-yellow data-[active=true]:bg-primary data-[active=true]:text-white dark:data-[active=true]:bg-brand-yellow dark:data-[active=true]:text-brand-black cursor-pointer"
             data-filter={filter}
@@ -109,10 +108,10 @@ const jobs = [
             <div class="flex justify-between items-start mb-8">
               <div class="flex gap-3">
                 <span class="px-3 py-1 rounded-inner bg-primary/5 text-primary dark:bg-brand-sky/10 dark:text-brand-sky text-[9px] font-bold uppercase tracking-widest">
-                  {job.category}
+                  {t(`career.filter.${job.category}` as any)}
                 </span>
                 <span class="px-3 py-1 rounded-inner bg-gray-50 dark:bg-white/5 text-text-body text-[9px] font-bold uppercase tracking-widest">
-                  {job.type}
+                  {t(`career.type.${job.type}` as any)}
                 </span>
               </div>
               <div
@@ -126,11 +125,11 @@ const jobs = [
             <h3
               class={`${job.isFeatured ? "text-4xl md:text-5xl" : "text-2xl"} font-bold text-heading dark:text-white mb-6 tracking-tightest leading-tight`}
             >
-              {job.title}
+              {t(`career.roles.${job.id}.title` as any)}
             </h3>
 
             <p class="text-text-body text-lg mb-10 line-clamp-3 leading-relaxed">
-              {job.description}
+              {t(`career.roles.${job.id}.desc` as any)}
             </p>
 
             <div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-100 dark:border-white/5">
@@ -140,13 +139,44 @@ const jobs = [
               >
                 {t("career.apply")}
               </a>
-              <time class="text-[10px] text-text-body/60 font-bold uppercase tracking-widest">
-                {t("career.posted")} {job.posted}
-              </time>
             </div>
           </article>
         ))
       }
+    </div>
+
+    <!-- Role Details: qualifications / mission / offer -->
+    <div class="grid md:grid-cols-3 gap-8 mt-16">
+      {
+        details.map((block) => (
+          <article class="bg-white dark:bg-white/5 border border-gray-100 dark:border-white/5 rounded-card p-8 md:p-10">
+            <h3 class="text-xl font-bold text-heading dark:text-white mb-6 tracking-tightest">
+              {t(`career.${block.id}.title` as any)}
+            </h3>
+            <ul class="space-y-3">
+              {Array.from({ length: block.count }, (_, i) => (
+                <li class="flex gap-3 text-text-body dark:text-gray-400 text-sm leading-relaxed">
+                  <span
+                    class="mt-1.5 w-1.5 h-1.5 shrink-0 rounded-pill bg-brand-orange dark:bg-brand-yellow"
+                    aria-hidden="true"
+                  />
+                  {t(`career.${block.id}.${i + 1}` as any)}
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="text-center mt-16">
+      <a
+        href="#contact"
+        class="inline-flex items-center gap-3 bg-action text-white dark:text-brand-black px-8 py-4 rounded-pill font-bold hover:scale-105 active:scale-95 transition-all duration-vercel shadow-lg shadow-action/20"
+      >
+        {t("career.apply")}
+        <span aria-hidden="true">→</span>
+      </a>
     </div>
   </div>
 </section>
