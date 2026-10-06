@@ -1,160 +1,66 @@
 ---
-const partners = [
-  {
-    name: "NTT DATA",
-    url: "http://www.company.com/company/assets/img/clients/1.png",
-  },
-  {
-    name: "Janssen Pharmaceutical",
-    url: "http://www.company.com/company/assets/img/clients/2.png",
-  },
-  {
-    name: "Johnson & Johnson",
-    url: "http://www.company.com/company/assets/img/clients/3.png",
-  },
-  {
-    name: "Cigna",
-    url: "http://www.company.com/company/assets/img/clients/5.png",
-  },
-  {
-    name: "Politie Police",
-    url: "http://www.company.com/company/assets/img/clients/6-a.png",
-  },
-  {
-    name: "Toyota",
-    url: "http://www.company.com/company/assets/img/clients/6-b.png",
-  },
-  {
-    name: "Test Aankoop",
-    url: "http://www.company.com/company/assets/img/clients/8.png",
-  },
-  {
-    name: "Electrabel",
-    url: "http://www.company.com/company/assets/img/clients/9.png",
-  },
-  {
-    name: "Sint-Maarten",
-    url: "http://www.company.com/company/assets/img/clients/10-a.png",
-  },
-  {
-    name: "Emmaüs",
-    url: "http://www.company.com/company/assets/img/clients/10-b.png",
-  },
-  {
-    name: "HP",
-    url: "http://www.company.com/company/assets/img/clients/12.png",
-  },
-  {
-    name: "EDS",
-    url: "http://www.company.com/company/assets/img/clients/13.png",
-  },
-  {
-    name: "UCB",
-    url: "http://www.company.com/company/assets/img/clients/14.png",
-  },
-  {
-    name: "BNP Paribas",
-    url: "http://www.company.com/company/assets/img/clients/15.png",
-  },
-  {
-    name: "Nike",
-    url: "http://www.company.com/company/assets/img/clients/16.png",
-  },
-  {
-    name: "Amadeus",
-    url: "http://www.company.com/company/assets/img/clients/17.png",
-  },
-  {
-    name: "NMBS",
-    url: "http://www.company.com/company/assets/img/clients/18.png",
-  },
-  {
-    name: "IMAS",
-    url: "http://www.company.com/company/assets/img/clients/19.png",
-  },
-  {
-    name: "Deutsche Bank",
-    url: "http://www.company.com/company/assets/img/clients/20.png",
-  },
-  {
-    name: "Fluvius",
-    url: "http://www.company.com/company/assets/img/clients/21.png",
-  },
-  {
-    name: "Van Genechten Packaging",
-    url: "http://www.company.com/company/assets/img/clients/22.png",
-  },
-  {
-    name: "Ardenne Bleue",
-    url: "http://www.company.com/company/assets/img/clients/23.png",
-  },
-  {
-    name: "Dip Clean Shop",
-    url: "http://www.company.com/company/assets/img/clients/24.png",
-  },
-  {
-    name: "Centric",
-    url: "http://www.company.com/company/assets/img/clients/25.png",
-  },
-  {
-    name: "CNN",
-    url: "http://www.company.com/company/assets/img/clients/26.png",
-  },
-  {
-    name: "ING",
-    url: "http://www.company.com/company/assets/img/clients/28.png",
-  },
-  {
-    name: "SD Worx",
-    url: "http://www.company.com/company/assets/img/clients/30.png",
-  },
-  {
-    name: "bpost",
-    url: "http://www.company.com/company/assets/img/clients/32.png",
-  },
-  {
-    name: "F-V-V-V",
-    url: "http://www.company.com/company/assets/img/clients/34.png",
-  },
-  {
-    name: "Ypto",
-    url: "http://www.company.com/company/assets/img/clients/35.png",
-  },
-  {
-    name: "USG Innovativ",
-    url: "http://www.company.com/company/assets/img/clients/36.png",
-  },
-  {
-    name: "Viveo",
-    url: "http://www.company.com/company/assets/img/clients/37.png",
-  },
-  {
-    name: "FPC",
-    url: "http://www.company.com/company/assets/img/clients/38.png",
-  },
-  {
-    name: "Gosselin Group",
-    url: "http://www.company.com/company/assets/img/clients/39.png",
-  },
-  {
-    name: "Nobel Biocare",
-    url: "http://www.company.com/company/assets/img/clients/40.png",
-  },
-  {
-    name: "Honda",
-    url: "http://www.company.com/company/assets/img/clients/41.png",
-  },
-  {
-    name: "MYCSN",
-    url: "http://www.company.com/company/assets/img/clients/42.png",
-  },
-  {
-    name: "OneSpan",
-    url: "http://www.company.com/company/assets/img/clients/43.png",
-  },
+/**
+ * Social Proof Component
+ * Content: verified client roster from the reference site.
+ * Performance: local WebP pipeline via astro:assets (no external host), lazy decoding.
+ */
+import { Image } from "astro:assets";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const logoModules = import.meta.glob<{ default: ImageMetadata }>(
+  "../assets/clients/*.webp",
+  { eager: true },
+);
+
+const clients: { id: string; name: string }[] = [
+  { id: "1", name: "NTT Data" },
+  { id: "2", name: "Janssen Pharmaceutical" },
+  { id: "3", name: "Johnson & Johnson" },
+  { id: "4", name: "Cigna" },
+  { id: "5", name: "Politie Police" },
+  { id: "6-a", name: "Toyota" },
+  { id: "6-b", name: "Test Aankoop" },
+  { id: "7", name: "Electrabel" },
+  { id: "8", name: "Algemeen Ziekenhuis Sint-Maarten" },
+  { id: "9", name: "Emmaüs" },
+  { id: "10-a", name: "HP" },
+  { id: "10-b", name: "EDS" },
+  { id: "11", name: "UCB" },
+  { id: "12", name: "BNP Paribas" },
+  { id: "13", name: "Nike" },
+  { id: "14", name: "Amadeus" },
+  { id: "15", name: "NMBS" },
+  { id: "16", name: "IMAS" },
+  { id: "17", name: "Deutsche Bank" },
+  { id: "18", name: "Fluvius" },
+  { id: "19", name: "Van Genechten Packaging" },
+  { id: "20", name: "Katoen Natie" },
+  { id: "21", name: "Clear2Pay" },
+  { id: "22", name: "Centric" },
+  { id: "23", name: "CRH" },
+  { id: "24", name: "ING" },
+  { id: "25", name: "SD Worx" },
+  { id: "26", name: "bpost" },
+  { id: "27", name: "FAVV" },
+  { id: "28", name: "Ypto" },
+  { id: "30", name: "USG Innotiv" },
+  { id: "32", name: "Viveo" },
+  { id: "34", name: "FPC" },
+  { id: "35", name: "Gosselin Group" },
+  { id: "36", name: "Nobel Biocare" },
+  { id: "37", name: "Honda" },
+  { id: "38", name: "MYCSN" },
+  { id: "39", name: "OneSpan" },
+  { id: "40", name: "Chapps" },
+  { id: "41", name: "Politie Antwerpen" },
+  { id: "42", name: "FOD Volksgezondheid" },
+  { id: "43", name: "Federale Pensioendienst" },
 ];
 
-import { getLangFromUrl, useTranslations } from "../i18n/utils";
+const partners = clients.flatMap(({ id, name }) => {
+  const meta = logoModules[`../assets/clients/${id}.webp`]?.default;
+  return meta ? [{ name, meta }] : [];
+});
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -181,13 +87,12 @@ const marqueeItems = [...partners, ...partners];
       {
         marqueeItems.map((partner) => (
           <div class="shrink-0 group/logo px-4">
-            <img
-              src={partner.url}
+            <Image
+              src={partner.meta}
               alt={`${partner.name} logo`}
-              width="120"
-              height="36"
+              width={160}
               class="h-7 md:h-9 w-auto transition-all duration-500 grayscale opacity-40 group-hover/logo:grayscale-0 group-hover/logo:opacity-100 dark:invert dark:group-hover/logo:invert-0"
-              loading="eager"
+              loading="lazy"
               decoding="async"
             />
           </div>
