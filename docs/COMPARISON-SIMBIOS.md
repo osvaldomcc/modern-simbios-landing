@@ -1,6 +1,6 @@
 # Comparative Report: `modern-landing` vs. simbios.be/simbios
 
-**Date:** October 5, 2026
+**Date:** October 5, 2026 · **Last updated:** October 7, 2026 (modern-landing re-measured after the image-quality and `llms.*` refresh)
 **Goal:** Document, with measured data, why this application outperforms the Simbios Creative Software Engineers reference site (`http://www.simbios.be/simbios/`), and honestly flag where it still falls behind.
 
 ---
@@ -9,35 +9,35 @@
 
 Simbios is a static landing page served by Apache/PHP (HTML last modified: **February 4, 2025**), built with Bootstrap 4 + AOS, with no modern semantic metadata, no sitemap, no robots.txt, no canonical HTTPS, no internationalization, and **~3.36 MB of unoptimized assets across 61 requests**.
 
-This application (Astro 6 + Tailwind 4 on Vercel) flips the equation: search-engine-ready HTML, **6.9 KB of inline JavaScript in total** (zero external JS requests), images served as WebP with declared dimensions, 4 languages with `hreflang`, schema.org, a dynamic `robots.txt`, an i18n sitemap, and `llms.txt` files for AI agents.
+This application (Astro 6 + Tailwind 4 on Vercel) flips the equation: search-engine-ready HTML, **7.4 KB of inline JavaScript in total** (zero external JS requests), images served as WebP with declared dimensions, 4 languages with `hreflang`, schema.org, a dynamic `robots.txt`, an i18n sitemap, and `llms.txt` files for AI agents.
 
-**Overall advantage: performance, international SEO, accessibility, maintainability, and AI readiness.** Simbios only keeps an edge in real content (clients, vacancies, and offices) — which is a *content* problem, not a *technology* one.
+**Overall advantage: performance, international SEO, accessibility, maintainability, and AI readiness.** On content the gap has mostly closed: the site now ships the same 43-client roster, 6 vacancies and 3 offices with address/phone/email that Simbios publishes. What remains is *brand* work, not technology: the placeholder name/domain and the fictional testimonial (§4).
 
 ---
 
-## 2. Hard metrics (measured on 10/05/2026)
+## 2. Hard metrics (Simbios measured 10/05/2026; modern-landing re-measured 10/07/2026)
 
 | Metric | Simbios | modern-landing | Advantage |
 |---|---|---|---|
-| Uncompressed HTML | 39.7 KB | 82.3 KB (SSR in `/es`) | Simbios* |
-| **Total JS loaded** | **~93 KB** (bootstrap 78 + AOS 14.3 + scripts 0.5) | **6.9 KB inline, 0 external requests** | **~13× less** |
-| CSS | 5 stylesheets, `styles.css` 153 KB + `bootstrap-icons.css` 57 KB (unminified) | 1 file, 55.7 KB (minified with Lightning CSS) | **~5× less** |
-| Total referenced assets | **3,444 KB / 61 files** | ~0.9 MB on first load (HTML+CSS+fonts+hero) | **~4× less** |
-| Images | 52 (`teams.png` 692 KB, `code.png` 494 KB, favicon 188 KB) | 83 via `astro:assets` pipeline → WebP (`logo` 249 KB → 1 KB) | **Automatic optimization** |
-| Images with `width`/`height` | **0 of 52** | **83 of 83** | CLS ~0 |
-| `loading="lazy"` | 0 | 5 (hero uses `fetchpriority`) | modern-landing |
+| Uncompressed HTML | 39.7 KB | 115.9 KB (SSR in `/es`) | Simbios* |
+| **Total JS loaded** | **~93 KB** (bootstrap 78 + AOS 14.3 + scripts 0.5) | **7.4 KB inline, 0 external requests** | **~12× less** |
+| CSS | 5 stylesheets, `styles.css` 153 KB + `bootstrap-icons.css` 57 KB (unminified) | 1 file, 58.4 KB (minified with Lightning CSS) | **~3.6× less** |
+| Total referenced assets | **3,444 KB / 61 files** | ~272 KB on first load (HTML+CSS+fonts+hero+logo); 216 KB across all 50 `/_astro` files the page references | **~10× less** |
+| Images | 52 (`teams.png` 692 KB, `code.png` 494 KB, favicon 188 KB) | 91 via `astro:assets` pipeline → WebP (`logo` 249 KB → 1 KB) | **Automatic optimization** |
+| Images with `width`/`height` | **0 of 52** | **91 of 91** | CLS ~0 |
+| `loading="lazy"` | 0 | 89 (hero + header logo eager, hero with `fetchpriority`) | modern-landing |
 | Images missing `alt` | 1 | 0 | modern-landing |
 | External JS requests | 3 | 0 | modern-landing |
 | Languages | 1 (`lang="en"`, EN content) | 4 (en/es/fr/nl) + redirect via `Accept-Language` | modern-landing |
 | `robots.txt` | **404** | 200, with `Sitemap:` and 1 h cache | modern-landing |
 | `sitemap.xml` | **404** | `sitemap-index.xml` with i18n + priority | modern-landing |
 | Canonical | no | yes | modern-landing |
-| `hreflang` / `x-default` | no | 5 tags | modern-landing |
-| Open Graph / Twitter Card | no / no | yes (og:type, title, description, image) | modern-landing |
+| `hreflang` / `x-default` | no | 5 `<link rel="alternate">` tags | modern-landing |
+| Open Graph / Twitter Card | no / no | og:type, title, description, image (**no `twitter:card` yet**) | modern-landing |
 | JSON-LD | no | `ProfessionalService` | modern-landing |
 | Dark mode | no | yes, zero-FOUC + `prefers-color-scheme` | modern-landing |
-| `aria-*` attributes | 3 | 8 `aria-label` + skip link + `:focus-visible` | modern-landing |
-| Contact form | `mailto:` (2 links) | Form with labels, native validation, visual states | modern-landing |
+| `aria-*` attributes | 3 | 9 `aria-label` + skip link + `:focus-visible` | modern-landing |
+| Contact form | `mailto:` (2 links) | Form with labels, native validation, visual states (no backend yet) | modern-landing |
 | AI-agent ready | no | `llms.txt` + `llms-full.txt` + `Allow:` in robots | modern-landing |
 
 \* Simbios only wins on raw HTML bytes because it ships none of the CSS or metadata; its markup alone is 40 KB with 52 undimensioned `<img>` tags.
@@ -57,10 +57,11 @@ This application (Astro 6 + Tailwind 4 on Vercel) flips the equation: search-eng
 **modern-landing**
 - Performance budgets documented in `docs/DESIGN.md`: **LCP < 1.2 s · CLS 0 · INP < 200 ms** (Addy Osmani / Google Labs standards).
 - Single minified stylesheet via Lightning CSS (`astro.config.mjs:76`).
-- JS confined to islands: **6.9 KB inline total**, no network blocking.
+- JS confined to islands: **7.4 KB inline total**, no network blocking.
 - `fetchpriority="high"` on the hero (`docs/DESIGN.md`, §2.1) to attack LCP.
 - The `astro:assets` + `sharp` pipeline converts and resizes at build time: the logo went from 249 KB to 1 KB as WebP.
 - Remote images (Unsplash/pravatar) declared in `image.remotePatterns` so they pass through the optimizer too.
+- **Image source resolution enforced (fixed 10/07/2026):** the hero and About photos were requested at `w=387` and then upscaled to 1200/600 px, and the hero used a watermarked **Unsplash+** asset. Both now request `w=1800` / `w=1200` from free Unsplash photos, so the pipeline never upscales (hero: 49 KB WebP at 1200×900, no watermark).
 
 ### 3.2 Technical SEO
 
@@ -96,7 +97,7 @@ This is exactly what a Belgian company should ship: **NL/FR/EN coverage**.
 | `:focus-visible` | no | yes, 2px outline from the action token |
 | Contrast | not verified | 4.5:1 target (`DESIGN.md` §4) |
 | Touch targets | no | 48 px minimum (`DESIGN.md` §4) |
-| Semantic structure | 1 `h1`, 5 `h2` | 1 `h1`, 8 `h2`, 10 `<section>`, `<article>`, `<nav aria-label>` |
+| Semantic structure | 1 `h1`, 5 `h2` | 1 `h1`, 10 `h2`, 12 `<section>`, `<article>`, `<nav aria-label>` |
 | Form labels | n/a (`mailto:` only) | 3 labels bound via `for`/`id` |
 | `role="contentinfo"` on footer | no | yes |
 
@@ -136,12 +137,14 @@ Simbios has none of these three.
 
 An honest report: this is what the reference site does better today.
 
-1. **Real, verifiable content.** 43 client logos, 6 detailed vacancies with requirements and offers, 3 offices with address, phone and real email, plus a VAT number. Our app ships the placeholder brand "company", `info@company.com`, `Capital, country`, and a single fictional testimonial ("Sarah Jenkins, Nexus Enterprise").
-2. **Social proof at scale.** Simbios's client grid signals track record; our technology marquee signals stack, not clients.
-3. **Production build broken on Windows.** `pnpm build` fails at the last step (`EPERM: symlink ... sharp` inside `@astrojs/vercel` during `astro:build:done`). Must be resolved before deploying (reproduce in CI/Linux or stop symlinking `sharp`).
-4. **Heavy brand assets.** `og-image.png` (1.88 MB), `company-preview.png` (821 KB) and `preview.png` (417 KB) ship uncompressed in `public/`. They should drop below 300 KB.
-5. **The `/` route is SSR**, not prerendered (only `/es`, `/fr`, `/nl` are prerendered at build). Simbios serves instant static HTML. Prerender `/`.
-6. **Form without a backend.** The `<form>` has no `action` and no handler: it is visual today. Simbios at least captures the lead by email. Connect an endpoint (Vercel Function + `CONTACT_EMAIL` already declared in `astro.config.mjs:32-36`).
+1. **Verified brand identity.** Content parity is essentially reached — we now ship the same 43-client logo roster (`SocialProof.astro`), 6 vacancies with qualifications/mission/offer, 3 offices with address, phone and email, and the VAT number. What is still fictional on our side is the brand itself: the name "company", the domain `company.com`, the `sales@company.com` addresses, and the single testimonial ("Sarah Jenkins, CTO, Nexus Enterprise").
+2. **Named references behind the logos.** Simbios pairs its client grid with public case data and named contacts; our copy asserts "Trusted by 50+ Enterprises" with no source, and the only quote is the placeholder above.
+3. **Everything self-hosted.** Simbios serves 100% local assets. Our hero and About photos are hotlinked from Unsplash at request time: an outage, a URL change or a licensing withdrawal breaks the LCP image. They must be downloaded into `src/assets/`.
+4. **Production build broken on Windows.** `pnpm build` fails at the last step (`EPERM: symlink ... sharp` inside `@astrojs/vercel` during `astro:build:done`). Must be resolved before deploying (reproduce in CI/Linux or stop symlinking `sharp`).
+5. **Heavy brand assets.** `og-image.png` (1.84 MB), `company-preview.png` (821 KB) and `preview.png` (417 KB) ship uncompressed in `public/`. They should drop below 300 KB.
+6. **The `/` route is SSR**, not prerendered (only `/es`, `/fr`, `/nl` are prerendered at build). Simbios serves instant static HTML. Prerender `/`.
+7. **Form without a backend.** The `<form>` has no `action` and no handler: it is visual today. Simbios at least captures the lead by email. Connect an endpoint (Vercel Function + `CONTACT_EMAIL` already declared in `astro.config.mjs:32-36`).
+8. **Doc drift.** `docs/DESIGN.md` still declares "Framework: Astro 5.x Optimized" while the repository runs Astro 6.1.9.
 
 ---
 
@@ -151,10 +154,12 @@ An honest report: this is what the reference site does better today.
 |---|---|---|
 | P0 | Fix the Vercel build (EPERM with `sharp`) | low |
 | P0 | Wire the form to a serverless endpoint and render all 4 states | medium |
-| P1 | Replace placeholder content with real clients, vacancies, and offices | medium |
+| P1 | Replace the remaining placeholders: brand name/domain and the testimonial | medium |
 | P1 | Compress `og-image.png` / `preview.png` (target <300 KB) | low |
 | P1 | Prerender the `/` route (or serve it statically) | low |
+| P2 | Self-host the hero and About photos in `src/assets/` (drop the Unsplash hotlink) | low |
 | P2 | Add `twitter:card` and `og:locale` | low |
+| P2 | Fix the `DESIGN.md` header (Astro 5.x → 6.1.9) | low |
 | P2 | Audit real 4.5:1 contrast with Lighthouse (target: 95+ in every category) | low |
 | P3 | Measure Lighthouse on a real deploy and enforce the budgets as a CI check | medium |
 
@@ -163,5 +168,5 @@ An honest report: this is what the reference site does better today.
 ## 6. Appendix: how this was measured
 
 - **Simbios:** `Invoke-WebRequest` against `https://www.simbios.be/simbios/`; counted `<script src>`, `<img>`, `alt`/`width`/`loading` attributes, presence of canonical/hreflang/OG/JSON-LD; issued HEAD requests to all 61 unique referenced assets to total their weight; verified `robots.txt` and `sitemap.xml` (both 404).
-- **modern-landing:** source read under `src/` (layout, middleware, config, design system) and a production build run with `pnpm build`; analysis of `dist/client/es/index.html` (size, inline scripts, image dimensions, aria, labels) and `dist/client/_astro` (CSS and font weight). Dev server inspected at `http://localhost:4321`.
+- **modern-landing:** source read under `src/` (layout, middleware, config, i18n copy, design system); metrics re-measured on 10/07/2026 by regex over `dist/client/es/index.html` (HTML bytes, inline script bytes, `<img>` count, `width`/`height`/`loading`/`alt`, `aria-label`, headings, canonical/hreflang/OG/JSON-LD) plus `dist/client/_astro` (CSS, fonts, image weight); image quality verified end-to-end through the dev optimizer (`/_image?…`) — output checked at 1200×900 (hero) and 600×600 (About) via `sharp`.
 - The cited performance budgets (LCP/CLS/INP) come from `docs/DESIGN.md`, not from field data: **they must be validated with Lighthouse on a real deploy**.

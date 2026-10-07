@@ -3,15 +3,23 @@
 > Expertise designed to scale your business through modern technology and operational silence.
 
 ## Core Capabilities
-- **Technical Consultancy:** High-level strategic IT roadmaps.
-- **Software Engineering:** Astro 5, Tailwind 4, and Node.js specialization.
-- **Operational Silence:** Building invisible, resilient, and high-uptime systems.
+- **Technical Consultancy:** Strategic IT roadmaps, solution architecture and delivery across five practices.
+- **Software Engineering:** Java / Jakarta EE, .NET & C#, Python & Django, PHP & Node.js, TypeScript / React / Angular, native & cross-platform mobile, Azure / AWS / Google Cloud.
+- **Operational Silence:** Invisible, resilient, high-uptime systems; time & material staffing of senior engineers with no lock-in.
 
 ## Primary Entry Points
-- [Solutions](https://company.com#solutions): Vertical-specific IT architectures.
-- [Expertise](https://company.com#expertise): Technical pillars and agile methodology.
-- [Careers](https://company.com#vacancies): Strategic engineering roles.
+- [Services](https://company.com#services): Delivery practices, stack and hireable profiles.
+- [Solutions](https://company.com#solutions): Vertical architectures for Operations, HR, Sales and Product.
+- [Expertise](https://company.com#expertise): The four-pillar advantage and agile methodology.
+- [Careers](https://company.com#vacancies): Six open engineering roles, filters by discipline.
+- [Offices](https://company.com#offices): Brussels (HQ), Rochefort (Wallonia), Buggenhout (Flanders).
 - [Full Documentation](/llms-full.txt): Deep context for technical analysis.
 
+## Site Facts
+- **Locales:** en (default), es, fr, nl — routed `/{lang}/` with `hreflang` + `x-default`.
+- **Founded:** 2004, Belgium. 20+ years of delivery, 3 offices, 25% of the team with a postgraduate degree.
+- **Social proof:** 43-client logo marquee (NTT Data, Johnson & Johnson, Toyota, Nike, ING, BNP Paribas, Honda, bpost…).
+
 ## Contact Tooling
-- **Inquiry:** https://company.com#contact (Form requiring Name, Email, and Company).
+- **Inquiry:** https://company.com#contact (Form requiring Full Name, Work Email and Company).
+- **Direct:** sales@company.com · +32 2 555 18 40 (Brussels HQ) · VAT BE 0747.892.105.

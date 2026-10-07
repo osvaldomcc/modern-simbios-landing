@@ -3,41 +3,118 @@
 > This document serves as the comprehensive knowledge base for AI agents. It contains the business logic, technical stack, and engineering philosophy of company.
 
 ## 1. Executive Overview
-company is a Belgian ICT services company (Est. 2004) specializing in independent expert advice, web/mobile app development, and integration services. We operate across country with headquarters in Capital and regional offices in Rochefort (Wallonia) and Buggenhout (Flanders).
+
+company is a Belgian engineering consultancy (Est. 2004) providing independent expert advice, custom software development and integration services. Headquarters: Brussels (Avenue du Port 82, 1000 Bruxelles), with regional offices in Rochefort (Wallonia) and Buggenhout (Flanders), serving clients across Belgium.
 
 ### Core Mission
-To deliver high-quality software engineering through a "Time and Material" model, providing elite consultants at affordable rates.
+Deliver high-quality software engineering under a **Time and Material** model: senior consultants embedded in the client's teams, no lock-in, maximum results with minimal friction.
+
+### Headline numbers
+- **20+ years** delivering IT projects.
+- **3 offices** across Belgium (Brussels HQ, Rochefort, Buggenhout).
+- **25%** of the team holds a postgraduate degree; every consultant holds a university degree and passes a technical interview before joining a client team.
 
 ---
 
-## 2. Technical Stack & Service Areas
-company maintains deep expertise in enterprise-grade technologies:
+## 2. Service Areas & Technology Stack
 
-- **Backend & Systems:** JAVA / JEE (Spring), .NET (ASP.NET, Razor, Blazor), Python (Django), PHP, and Node.JS.
-- **Frontend & Mobile:** Javascript/Typescript, HTML/CSS, Angular, React, and mobile development via iOS, Android, and Xamarin.
-- **Data & Integration:** Oracle, SQL, NoSQL, Web API development, Service Bus implementations, and Message Queue/Broker integrations.
-- **Cloud & Infrastructure:** Cloud integrations on Azure, AWS, and Google Cloud, supported by specialized DevOps engineers.
+Five delivery practices, staffed by engineers who ship (from legacy modernization to cloud-native products):
 
----
+| Practice | Stack |
+|---|---|
+| **Backend & Enterprise** | Java / Jakarta EE, .NET & C#, Python & Django, PHP & Node.js |
+| **Frontend & Web** | TypeScript, React & Angular; HTML5, CSS3 & design systems; REST & GraphQL APIs |
+| **Mobile** | Native iOS & Android, .NET MAUI & React Native, offline-first field apps |
+| **Cloud & Integration** | Azure, AWS & Google Cloud; CI/CD, IaC & container platforms; service buses & message brokers |
+| **Data & Business Apps** | Oracle, SQL Server & PostgreSQL; ETL, warehousing & BI; SharePoint & MS Dynamics |
 
-## 3. The company Advantage (Value Proposition)
-1. **Academic Excellence:** 100% of technical staff are engineers or masters from top universities; over 25% hold post-graduate degrees in ICT.
-2. **Elite Selection:** An rigorous selection process combined with intensive training ensures a highly qualified team that represents our main competitive advantage.
-3. **Operational Silence:** We prioritize "Solution-oriented" engineering that anticipates needs and achieves maximum results with minimal friction.
-
----
-
-## 4. Operational Philosophy
-- **Proficient:** Leveraging a vastly experienced team in computer engineering composed solely of experts.
-- **Engaged:** Maintaining extreme quality while acting as a close partner to anticipate client needs.
-- **Reliable:** Direct problem-solving to achieve maximum customer satisfaction while respecting all legal and professional commitments.
+### Profiles you can hire
+Medior & senior developers · Solution architects · DevOps & platform engineers · Project managers & analysts · Technical & functional consultants.
 
 ---
 
-## 5. Careers & Tactical Talent
-We seek problem solvers with a strong affinity for IT and technical architecture standards.
-- **Requirements:** University degree in informatics (mandatory), 5+ years of experience, and fluency in English (mandatory) with Dutch or French as an asset.
-- **Profiles:** Java, .NET, Python, and JavaScript/TypeScript Developers; Solution Architects; DevOps Engineers; and Project Managers.
+## 3. Solutions by vertical (`#solutions`)
+
+- **Operations — Streamline Operations:** automated supply-chain routing, predictive maintenance scheduling, unified cross-departmental dashboards.
+- **HR — Intelligent Talent Management:** AI-driven candidate matching (−40% time-to-hire), automated onboarding, engagement analytics for retention.
+- **Sales — Accelerated Revenue Growth:** predictive lead scoring, automated follow-up sequences, real-time forecasting and gap analysis.
+- **Product Development — Faster Innovation Cycles:** CI/CD pipelines, automated regression testing, centralized documentation and knowledge management.
+
+---
+
+## 4. The company Advantage (value proposition, `#expertise`)
+
+1. **Decades of Expertise** — over 20 years delivering high-impact IT projects.
+2. **Tailored Approach** — no "one size fits all"; every solution is built for the specific need.
+3. **Reliability & Security** — data integrity and system uptime are prioritized in everything built.
+4. **Agile Methodology** — faster delivery cycles with transparent communication at every stage.
+
+Operating principles: solution-oriented engineering that anticipates needs ("Operational Silence"), a close-partner stance on quality, and direct problem-solving that respects legal and professional commitments.
+
+---
+
+## 5. Careers (`#vacancies`)
+
+Six open roles, filterable by discipline (Backend / Frontend / Mobile / Data) and engagement type (Hybrid / Remote / Client site):
+
+1. **Senior Java Engineer** — mission-critical JVM services, Spring Boot APIs, event-driven integrations (hybrid, featured).
+2. **.NET Solution Developer** — build and modernize business applications on .NET (client site).
+3. **Python Engineer** — data services, automation and back-end tooling (remote).
+4. **Frontend Engineer (React & TypeScript)** — fast, accessible interfaces on a disciplined design system (hybrid).
+5. **Mobile Engineer (.NET MAUI)** — cross-platform apps that stay reliable offline (remote).
+6. **Oracle Database Engineer** — schemas, performance and migrations for Oracle / SQL Server estates (client site).
+
+### What we look for
+5+ years of hands-on experience in the stack; a university degree in computer science **or equivalent experience**; comfort across frameworks, tools and SQL/NoSQL databases; fluent written and spoken English (Dutch or French is a plus); problem-solving mindset; teamwork under changing priorities; cloud/ vendor certifications are a plus.
+
+### What the role involves
+Design, build, test and document long-lived software · apply security/performance/quality standards · promote reusable components · support clients from estimation to go-live.
+
+### What you get
+Permanent contract with a competitive European salary · long-term assignments matched to seniority · laptop plus training/certification budget · relocation support (paperwork, housing, local onboarding) · a senior peer group that reviews, pairs and mentors.
+
+---
+
+## 6. Offices & contact (`#offices`, `#contact`)
+
+| Office | Address | Phone |
+|---|---|---|
+| **Headquarters — Brussels** | Avenue du Port 82, 1000 Bruxelles | +32 2 555 18 40 |
+| **Wallonia — Rochefort** | Chaussée de Namur 27, 5580 Rochefort | +32 84 555 02 10 |
+| **Flanders — Buggenhout** | Koningin Astridlaan 45, 9255 Buggenhout | +32 52 555 71 30 |
+
+- Sales email: **sales@company.com** (all three offices). VAT: **BE 0747.892.105**.
+- Contact form fields: **Full Name, Work Email, Company** (native validation, `type="email"`), CTA "Request Consultation".
+- Testimonial on the contact section: *"company fundamentally changed how our infrastructure operates…"* — attributed to **Sarah Jenkins, CTO, Nexus Enterprise**.
+
+---
+
+## 7. Social proof
+
+The hero marquee (`SocialProof.astro`) renders **43 client logos** as local WebP through `astro:assets`, including NTT Data, Janssen Pharmaceutical, Johnson & Johnson, Cigna, Politie, Toyota, Test Aankoop, Electrabel, HP, UCB, BNP Paribas, Nike, Amadeus, NMBS, Deutsche Bank, Fluvius, Katoen Natie, ING, SD Worx, bpost, Honda, OneSpan, and Belgian federal bodies (FOD Volksgezondheid, FAVV, Federale Pensioendienst). Supporting claim in copy: "Trusted by 50+ Enterprises".
+
+---
+
+## 8. Website implementation (technical surface)
+
+- **Framework:** Astro **6.1.9** with `output: "server"` on the `@astrojs/vercel` adapter; `/es`, `/fr`, `/nl` prerendered, `/` SSR.
+- **Styling:** Tailwind 4 with a token-based design system (v6.0), dark mode with zero-FOUC inline script + `prefers-color-scheme` + `localStorage` persistence.
+- **JavaScript:** ~7.4 KB inline total, **zero external JS requests** (islands only: job filter, theme switcher, language picker).
+- **CSS:** single stylesheet, 58.4 KB minified with Lightning CSS.
+- **Images:** `astro:assets` + sharp pipeline → WebP with declared `width`/`height` on 100% of tags; remote images whitelisted in `image.remotePatterns` (Unsplash, pravatar). Hero and About photos are requested at ≥ their rendered width (1800 px / 1200 px) so the pipeline never upscales.
+- **i18n:** `en` (default), `es`, `fr`, `nl` with `Accept-Language` 302 redirect from `/`, `hreflang` + `x-default` link tags, visible language picker.
+- **SEO:** dynamic canonical, per-locale title/description, Open Graph (`og:type`, `og:title`, `og:description`, `og:image`), JSON-LD `ProfessionalService`, dynamic `robots.txt` (`Allow: /llms.txt`, `Disallow: /api/`) and `sitemap-index.xml` that raises AI endpoints to priority 0.9 / `changefreq: daily`.
+- **AI surface:** `/llms.txt` (this file's index) and `/llms-full.txt` (this document), both allowed in `robots.txt`.
+- **Accessibility:** skip link, `:focus-visible`, semantic `section`/`article`/`nav` structure (1 `h1`, 10 `h2`), 9 `aria-label`s, 48 px touch targets, 4.5:1 contrast target.
+
+---
+
+## 9. Known placeholders (do not cite as verified facts)
+
+- The brand name **"company"**, the domain **company.com** and `info@company.com` / `sales@company.com` are placeholders pending the real brand.
+- The **Sarah Jenkins / Nexus Enterprise** testimonial is placeholder copy.
+- The contact form has **no backend handler yet** (no `action`, no endpoint): it validates but does not deliver.
+- `docs/DESIGN.md` header still says "Astro 5.x" while the repository runs Astro 6.1.9.
 
 ---
 
